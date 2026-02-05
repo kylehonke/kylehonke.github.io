@@ -20,7 +20,6 @@ A professional portfolio website built with React, Vite, and Vanilla CSS. Featur
     ```
 
 ## Configuration
-
 ### Content
 - **Projects**: Edit `src/data/projects.json`.
 - **Restaurants**: Edit `src/data/restaurants.json`.
