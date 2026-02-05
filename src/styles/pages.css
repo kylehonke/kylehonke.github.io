@@ -1,0 +1,131 @@
+/* Layout Override */
+.app-container {
+    background: transparent;
+}
+
+.top-nav {
+    background: transparent;
+    backdrop-filter: none;
+}
+
+.site-footer {
+    background: transparent;
+    color: var(--text-light);
+    border-top: none;
+    font-size: 0.8rem;
+    padding: 3rem 0;
+}
+
+/* Home Page */
+.home-container {
+    min-height: calc(100vh - 100px);
+    /* Account for footer/nav */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.home-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    letter-spacing: -2px;
+}
+
+.home-subtitle {
+    height: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* About Page */
+.about-content {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+}
+
+.divider-line {
+    width: 60px;
+    height: 2px;
+    background: var(--pastel-blue);
+    margin: 1rem 0;
+}
+
+/* Projects Page */
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+    /* More breathing room */
+    margin-bottom: 6rem;
+}
+
+.project-item {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.project-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.project-card-wrapper {
+    flex: 1;
+}
+
+.project-spacer {
+    flex: 1;
+}
+
+.fun-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+/* Minimalist Extras */
+.extras-list {
+    margin: 0 auto;
+}
+
+/* Galleries */
+.storm-gallery {
+    column-count: 3;
+    column-gap: 1.5rem;
+}
+
+.gallery-item {
+    margin-bottom: 1.5rem;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .project-item {
+        flex-direction: column !important;
+        gap: 2rem;
+    }
+
+    .storm-gallery {
+        column-count: 1;
+    }
+
+    .home-title {
+        font-size: 2.5rem;
+    }
+}

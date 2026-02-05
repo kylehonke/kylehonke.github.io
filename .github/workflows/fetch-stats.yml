@@ -1,0 +1,39 @@
+name: Fetch Gaming Stats
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs daily at midnight
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run Fetch Script
+        env:
+          STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
+          STEAM_ID: ${{ secrets.STEAM_ID }}
+          XBOX_API_KEY: ${{ secrets.XBOX_API_KEY }}
+          RETRO_API_KEY: ${{ secrets.RETRO_API_KEY }}
+          RETRO_USER: ${{ secrets.RETRO_USER }}
+        run: |
+          node scripts/fetch-stats.js
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git add public/stats.json
+          git commit -m "Update gaming stats [skip ci]" || exit 0
+          git push

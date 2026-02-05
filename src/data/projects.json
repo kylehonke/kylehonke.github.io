@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "title": "LSTM Models for Time Series Analysis",
+        "description": "Data retrieval, data processing, model selection, and model evaluation are all controlled via hyperparameters in a single config.py file. This architecture allows for instant comparison between Simple, Stacked, and Bidirectional Machine Learning models for time series analysis.",
+        "link": "https://github.com/kylehonke/lstm-energy",
+        "type": "professional"
+    },
+    {
+        "id": 2,
+        "title": "Graph Data Structure",
+        "description": "Resilient C++ implementation of an undirected, unweighted graph data structure. Optimized for performance and memory efficiency, it supports essential graph algorithms including Breadth-First and Depth-First Search traversals.",
+        "link": "https://github.com/kylehonke/undirected-unweighted-graph",
+        "type": "professional"
+    },
+    {
+        "id": 3,
+        "title": "Interactive Portfolio",
+        "description": "This responsive personal website, built with React and Vite. It features a custom minimalist design system, real-time automation via GitHub Actions for gaming stats, and seamless integration with third-party APIs.",
+        "link": "https://github.com/kylehonke/kylehonke.github.io",
+        "type": "professional"
+    },
+    {
+        "id": 4,
+        "title": "Time-based commit message prefixes",
+        "description": "A tool to automatically add a time-based prefix to commit messages.",
+        "link": "https://github.com/kylehonke/day-night-commit",
+        "type": "fun"
+    },
+    {
+        "id": 5,
+        "title": "Coming Soon!",
+        "description": "A tool to scrape metadata for retro games.",
+        "link": "https://github.com/kylehonke/retro-game-scraper",
+        "type": "fun"
+    }
+]

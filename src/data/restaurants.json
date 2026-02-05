@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Shore Raw Bar & Grill",
+        "description": "Fresh seafood, friendly staff, live music",
+        "link": "https://shoreatx.com/"
+    },
+    {
+        "id": 2,
+        "name": "Home Slice Pizza",
+        "description": "Best pizza in Austin, I promise",
+        "link": "https://homeslicepizza.com/"
+    },
+    {
+        "id": 3,
+        "name": "Loro",
+        "description": "They just took away their best drink... food is still 10/10",
+        "link": "https://loroeats.com/"
+    },
+    {
+        "id": 4,
+        "name": "Bar Peached",
+        "description": "Bring friends, order the wings",
+        "link": "https://barpeached.com/"
+    },
+    {
+        "id": 5,
+        "name": "Saps",
+        "description": "I know the building is gross, but trust me :)",
+        "link": "https://www.sapsver.com/"
+    }
+]
