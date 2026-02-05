@@ -1,38 +1,69 @@
 {
-    "steam": {
-        "profileUrl": "https://steamcommunity.com/id/grewvy/",
-        "games": [
-            {
-                "name": "Halo: The Master Chief Collection",
-                "playtime_forever": 12000,
-                "icon": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/976730/62aa39f280d0d885a5a1f267420556557813a34a.jpg"
-            },
-            {
-                "name": "Fallout: New Vegas",
-                "playtime_forever": 8500,
-                "icon": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/22380/0e932ec34354c4f3469c8a4c840c9213872c8411.jpg"
-            }
-        ],
-        "lastPlayed": "Halo: The Master Chief Collection"
-    },
-    "xbox": {
-        "gamertag": "grooovyKyle",
-        "gamerscore": 12500,
-        "recentGames": [
-            "Halo Infinite",
-            "Forza Horizon 5"
-        ]
-    },
-    "retro": {
-        "user": "stormkittyflvcko",
-        "points": 4500,
-        "recentAchievements": [
-            {
-                "game": "The Legend of Zelda: Ocarina of Time",
-                "title": "Master Sword",
-                "points": 10
-            }
-        ]
-    },
-    "lastUpdated": "2026-02-02T12:00:00Z"
+  "steam": {
+    "profileUrl": "https://steamcommunity.com/id/grewvy/",
+    "avatar": "https://avatars.steamstatic.com/e5e6febd7da8e5b029b541a2aef7a7f711ecf7be_full.jpg",
+    "games": [
+      {
+        "name": "Clair Obscur: Expedition 33",
+        "playtime_forever": 11738,
+        "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1903340/d48fb3ed033a08bad9bf0a2e1ceb145e58ffe0aa.jpg"
+      },
+      {
+        "name": "DayZ",
+        "playtime_forever": 5556,
+        "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/221100/16a985dfee9b093d76a0ffc4cf4c77ba20c2eb0d.jpg"
+      },
+      {
+        "name": "CastleMiner Z",
+        "playtime_forever": 654,
+        "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/253430/a9eb03aa5178192cc241764992c4ed57cec437ca.jpg"
+      },
+      {
+        "name": "Portal 2",
+        "playtime_forever": 649,
+        "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/620/25a5a16b2423bf7487ac5340b5b0948cef48c5f8.jpg"
+      },
+      {
+        "name": "Marvel Rivals",
+        "playtime_forever": 391,
+        "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/2767030/839b4712925b95702ca56e0c4d399adf54f4d617.jpg"
+      },
+      {
+        "name": "Phasmophobia",
+        "playtime_forever": 371,
+        "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/739630/125673b382059f666ec81477173380a76e1df0be.jpg"
+      },
+      {
+        "name": "Halo Infinite",
+        "playtime_forever": 354,
+        "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1240440/ec684b943169d675439f6cdf64fa2f2aa90d9821.jpg"
+      },
+      {
+        "name": "Unturned",
+        "playtime_forever": 330,
+        "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/304930/e18009fb628b35953826efe47dc3be556b689f4c.jpg"
+      },
+      {
+        "name": "Super Crate Box",
+        "playtime_forever": 283,
+        "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/212800/842df7463377f931ce83d5224473b7ae68405d60.jpg"
+      },
+      {
+        "name": "Banana Shooter",
+        "playtime_forever": 192,
+        "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1949740/3cb7f556be4f82352943d5d031d507c5ea647cd1.jpg"
+      }
+    ],
+    "lastPlayed": "Clair Obscur: Expedition 33"
+  },
+  "xbox": {
+    "gamertag": "grooovyKyle",
+    "gamerscore": "33094",
+    "recentGames": []
+  },
+  "retro": {
+    "user": "stormkittyflvcko",
+    "recentAchievements": []
+  },
+  "lastUpdated": "2026-02-05T14:35:01.952Z"
 }
