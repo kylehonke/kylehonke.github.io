@@ -24,11 +24,10 @@ const Storm = () => {
                 {images.map((i) => (
                     <div key={i} className="gallery-item" style={{ borderRadius: '12px', overflow: 'hidden', height: '300px', background: '#f7fafc', position: 'relative' }}>
                         {/* 
-                           User Instruction: 
-                           Place images in public/assets/storm/ named storm-1.jpg, storm-2.jpg, etc.
+                           Place images in public/assets/storm/ named storm-1.jpg storm-2.jpg etc.
                            Extensions can vary, but hardcoding .jpg for simplicity. 
-                           If user uses png, they might need to update this or I can provide a script to detect.
-                           For now, asking for jpg is easiest.
+                           If png, might need to update this or I can create a script to detect.
+                           For now, jpg is easiest.
                         */}
                         <img
                             src={`/assets/storm/storm-${i}.jpg`}
