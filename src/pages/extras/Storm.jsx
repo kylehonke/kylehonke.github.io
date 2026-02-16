@@ -34,8 +34,15 @@ const Storm = () => {
                             alt={`Storm ${i}`}
                             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                             onError={(e) => {
-                                e.target.onerror = null;
-                                e.target.src = `https://placehold.co/400x400?text=storm-${i}`; // Fallback if local image missing
+                                const src = e.target.src;
+                                if (src.endsWith('.jpg')) {
+                                    // Try uppercase .JPG next
+                                    e.target.src = `/assets/storm/storm-${i}.JPG`;
+                                } else {
+                                    // Both failed, use placeholder
+                                    e.target.onerror = null;
+                                    e.target.src = `https://placehold.co/400x400?text=storm-${i}`;
+                                }
                             }}
                         />
                     </div>
