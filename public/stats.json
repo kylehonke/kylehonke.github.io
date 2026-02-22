@@ -63,7 +63,55 @@
   },
   "retro": {
     "user": "stormkittyflvcko",
-    "recentAchievements": []
+    "hardcorePoints": 50,
+    "softcorePoints": 259,
+    "lastGame": {
+      "title": "The Legend of Zelda: Majora's Mask",
+      "consoleName": "Nintendo 64",
+      "icon": "https://media.retroachievements.org/Images/045842.png"
+    },
+    "recentAchievements": [
+      {
+        "title": "Fungus Finder",
+        "game": "The Legend of Zelda: Majora's Mask",
+        "points": 2,
+        "dateAwarded": "2026-02-17 19:34:39",
+        "badgeUrl": "https://media.retroachievements.org/Badge/613086.png",
+        "hardcore": true
+      },
+      {
+        "title": "Princess in a Bottle",
+        "game": "The Legend of Zelda: Majora's Mask",
+        "points": 2,
+        "dateAwarded": "2026-02-17 19:22:24",
+        "badgeUrl": "https://media.retroachievements.org/Badge/613103.png",
+        "hardcore": true
+      },
+      {
+        "title": "Masked Jungle Warrior",
+        "game": "The Legend of Zelda: Majora's Mask",
+        "points": 5,
+        "dateAwarded": "2026-02-17 19:17:17",
+        "badgeUrl": "https://media.retroachievements.org/Badge/613112.png",
+        "hardcore": true
+      },
+      {
+        "title": "Archer of Time",
+        "game": "The Legend of Zelda: Majora's Mask",
+        "points": 5,
+        "dateAwarded": "2026-02-17 18:44:56",
+        "badgeUrl": "https://media.retroachievements.org/Badge/613067.png",
+        "hardcore": true
+      },
+      {
+        "title": "Chomp Chomp",
+        "game": "The Legend of Zelda: Majora's Mask",
+        "points": 2,
+        "dateAwarded": "2026-02-13 15:07:41",
+        "badgeUrl": "https://media.retroachievements.org/Badge/613069.png",
+        "hardcore": true
+      }
+    ]
   },
-  "lastUpdated": "2026-02-22T02:40:26.299Z"
+  "lastUpdated": "2026-02-22T09:17:12.458Z"
 }
