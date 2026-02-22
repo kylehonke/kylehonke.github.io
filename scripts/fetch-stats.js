@@ -83,17 +83,34 @@ async function fetchRetroStats() {
         return null;
     }
     try {
-        const res = await fetch(`https://retroachievements.org/API/API_GetUserSummary.php?z=${RETRO_USER}&y=${RETRO_KEY}&u=${RETRO_USER}`);
+        const res = await fetch(`https://retroachievements.org/API/API_GetUserSummary.php?z=${RETRO_USER}&y=${RETRO_KEY}&u=${RETRO_USER}&g=3&a=10`);
         const data = await res.json();
 
         return {
             user: RETRO_USER,
-            points: data.Points,
-            recentAchievements: data.RecentAchievements ? Object.values(data.RecentAchievements).map(a => ({
-                game: a.GameTitle,
-                title: a.Title,
-                points: a.Points
-            })).slice(0, 5) : []
+            hardcorePoints: data.TotalPoints,
+            softcorePoints: data.TotalSoftcorePoints,
+            lastGame: data.LastGame ? {
+                title: data.LastGame.Title,
+                consoleName: data.LastGame.ConsoleName,
+                icon: data.LastGame.ImageIcon?.startsWith('http')
+                    ? data.LastGame.ImageIcon
+                    : `https://media.retroachievements.org${data.LastGame.ImageIcon}`
+            } : null,
+            recentAchievements: data.RecentAchievements
+                ? Object.values(data.RecentAchievements)
+                      .flatMap(gameObj => Object.values(gameObj))
+                      .sort((a, b) => new Date(b.DateAwarded) - new Date(a.DateAwarded))
+                      .slice(0, 5)
+                      .map(a => ({
+                          title: a.Title,
+                          game: a.GameTitle,
+                          points: a.Points,
+                          dateAwarded: a.DateAwarded,
+                          badgeUrl: `https://media.retroachievements.org/Badge/${a.BadgeName}.png`,
+                          hardcore: a.HardcoreAchieved === 1
+                      }))
+                : []
         };
     } catch (e) {
         console.error('Retro Fetch Error:', e);

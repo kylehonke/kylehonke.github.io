@@ -92,18 +92,53 @@ const Gaming = () => {
                                     view profile <ExternalLink size={16} />
                                 </a>
                             </div>
-                            <div style={{ marginBottom: '2rem' }}>
-                                <p style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#4a5568', lineHeight: '1' }}>{stats.retro?.points}</p>
-                                <span style={{ fontSize: '0.9rem', fontWeight: '500', color: '#a0aec0' }}>Hardcore Points</span>
+
+                            <div style={{ display: 'flex', gap: '2rem', marginBottom: '1.5rem' }}>
+                                <div>
+                                    <p style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#4a5568', lineHeight: '1' }}>{stats.retro?.hardcorePoints ?? '---'}</p>
+                                    <span style={{ fontSize: '0.9rem', fontWeight: '500', color: '#a0aec0' }}>hardcore points</span>
+                                </div>
+                                <div>
+                                    <p style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#4a5568', lineHeight: '1' }}>{stats.retro?.softcorePoints ?? '---'}</p>
+                                    <span style={{ fontSize: '0.9rem', fontWeight: '500', color: '#a0aec0' }}>softcore points</span>
+                                </div>
                             </div>
 
-                            <p style={{ fontSize: '0.8rem', color: '#a0aec0', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Latest Unlock</p>
-                            {stats.retro?.recentAchievements?.[0] && (
-                                <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px', border: '1px solid #edf2f7' }}>
-                                    <p style={{ fontWeight: '600', fontSize: '1rem', color: '#2d3748', marginBottom: '0.2rem' }}>{stats.retro.recentAchievements[0].title}</p>
-                                    <p style={{ fontSize: '0.85rem', color: '#718096' }}>{stats.retro.recentAchievements[0].game}</p>
+                            {stats.retro?.lastGame && (
+                                <div style={{ marginBottom: '1.5rem', padding: '0.75rem', background: '#f8fafc', borderRadius: '8px', border: '1px solid #edf2f7' }}>
+                                    <p style={{ fontSize: '0.8rem', color: '#a0aec0', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '0.3rem' }}>last played</p>
+                                    <p style={{ fontWeight: '600', fontSize: '1rem', color: '#2d3748' }}>{stats.retro.lastGame.title}</p>
+                                    <p style={{ fontSize: '0.85rem', color: '#718096' }}>{stats.retro.lastGame.consoleName}</p>
                                 </div>
                             )}
+
+                            <p style={{ fontSize: '0.8rem', color: '#a0aec0', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>recent unlocks</p>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                                {stats.retro?.recentAchievements?.slice(0, 3).map((ach, i) => (
+                                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '1rem', paddingBottom: i < 2 ? '1rem' : '0', borderBottom: i < 2 ? '1px solid #f1f5f9' : 'none' }}>
+                                        <img
+                                            src={ach.badgeUrl}
+                                            alt={ach.title}
+                                            style={{ width: '48px', height: '48px', borderRadius: '8px', opacity: 0.9 }}
+                                            onError={(e) => { e.target.style.display = 'none'; }}
+                                        />
+                                        <div style={{ flex: 1 }}>
+                                            <p style={{ fontWeight: '600', fontSize: '1rem', color: '#4a5568', marginBottom: '0.1rem' }}>{ach.title}</p>
+                                            <p style={{ fontSize: '0.85rem', color: '#718096', marginBottom: '0.1rem' }}>{ach.game}</p>
+                                            <p style={{ fontSize: '0.8rem', color: '#a0aec0', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                                {ach.points} pts
+                                                {ach.hardcore && (
+                                                    <span style={{ fontSize: '0.7rem', color: 'var(--pastel-seafoam)', fontWeight: '700', border: '1px solid var(--pastel-seafoam)', borderRadius: '4px', padding: '0 4px' }}>HC</span>
+                                                )}
+                                                <span style={{ marginLeft: 'auto' }}>{new Date(ach.dateAwarded).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                                {(!stats.retro?.recentAchievements || stats.retro.recentAchievements.length === 0) && (
+                                    <p style={{ fontSize: '0.9rem', color: '#a0aec0' }}>no recent achievements</p>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>
