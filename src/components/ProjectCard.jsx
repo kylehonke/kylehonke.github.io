@@ -32,7 +32,15 @@ const ProjectCard = ({ project }) => {
                     </a>
                 )}
             </div>
-            <p style={{ color: '#718096', lineHeight: '1.7', fontSize: '1rem' }}>{project.description}</p>
+            <p style={{ color: '#718096', lineHeight: '1.7', fontSize: '1rem' }}>
+                {project.description}
+                {project.demoLink && (
+                    <>
+                        <br />
+                        Try it <a href={project.demoLink} target="_blank" rel="noopener noreferrer" style={{ color: '#4a5568', textDecoration: 'underline', fontWeight: '500' }}>Here</a>
+                    </>
+                )}
+            </p>
         </motion.div>
     );
 };
