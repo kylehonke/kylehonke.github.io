@@ -63,8 +63,8 @@
   },
   "retro": {
     "user": "stormkittyflvcko",
-    "hardcorePoints": 50,
-    "softcorePoints": 259,
+    "hardcorePoints": 64,
+    "softcorePoints": 245,
     "lastGame": {
       "title": "The Legend of Zelda: Majora's Mask",
       "consoleName": "Nintendo 64",
@@ -113,5 +113,5 @@
       }
     ]
   },
-  "lastUpdated": "2026-02-22T09:17:12.458Z"
+  "lastUpdated": "2026-02-23T02:41:02.809Z"
 }
