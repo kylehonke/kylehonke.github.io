@@ -5,7 +5,7 @@ const Gaming = () => {
     const [stats, setStats] = useState(null);
 
     useEffect(() => {
-        fetch('/stats.json')
+        fetch(`/stats.json?v=${Date.now()}`)
             .then(res => res.json())
             .then(data => setStats(data))
             .catch(err => console.error('Failed to load gaming stats:', err));
