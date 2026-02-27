@@ -6,7 +6,8 @@ on:
   workflow_dispatch:    # Allows manual run button
 
 permissions:
-  contents: write       # <--- Allows saving the file
+  contents: write # Allows saving the file
+  actions: write  # Allows triggering deploy workflow
 
 jobs:
   update-stats:
@@ -29,10 +30,24 @@ jobs:
           RETRO_USER: ${{ secrets.RETRO_USER }}
         run: node scripts/fetch-stats.js
 
-      - name: Commit and Push Changes
+      - name: Commit, Push, and Deploy
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'actions@github.com'
+          git config --global user.name 'kylehonke'
+          git config --global user.email '135394003+kylehonke@users.noreply.github.com'
+          
+          # Stage the stats file
           git add public/stats.json
-          # Only commit if the file has actually changed
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update gaming stats [skip ci]" && git push)
+          
+          # Check if stats file has any staged changes
+          if ! git diff --staged --quiet; then
+            git commit -m "[Auto] Refresh stats"
+            git push
+            
+            # Trigger the deploy workflow explicitly
+            echo "Stats updated, triggering deployment..."
+            gh workflow run deploy.yml --ref main
+          else
+            echo "No changes to stats.json, skipping deployment."
+          fi
