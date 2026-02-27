@@ -50,7 +50,7 @@ async function fetchSteamStats() {
             lastPlayed: recentData.response.games?.[0]?.name || games[0]?.name
         };
     } catch (e) {
-        console.error('Steam Fetch Error:', e);
+        console.error('Steam Fetch Error occurred (details hidden for security).');
         return null;
     }
 }
@@ -72,7 +72,7 @@ async function fetchXboxStats() {
             recentGames: [] 
         };
     } catch (e) {
-        console.error('Xbox Fetch Error:', e);
+        console.error('Xbox Fetch Error occurred (details hidden for security).');
         return null;
     }
 }
@@ -113,7 +113,7 @@ async function fetchRetroStats() {
                 : []
         };
     } catch (e) {
-        console.error('Retro Fetch Error:', e);
+        console.error('Retro Fetch Error occurred (details hidden for security).');
         return null;
     }
 }
