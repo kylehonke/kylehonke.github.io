@@ -5,7 +5,7 @@
     "games": [
       {
         "name": "Clair Obscur: Expedition 33",
-        "playtime_forever": 12785,
+        "playtime_forever": 12799,
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1903340/d48fb3ed033a08bad9bf0a2e1ceb145e58ffe0aa.jpg"
       },
       {
@@ -44,14 +44,14 @@
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/304930/e18009fb628b35953826efe47dc3be556b689f4c.jpg"
       },
       {
+        "name": "ARC Raiders",
+        "playtime_forever": 320,
+        "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1808500/c284e73b6f3321864805d66f99924a0da9f0b219.jpg"
+      },
+      {
         "name": "Super Crate Box",
         "playtime_forever": 283,
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/212800/842df7463377f931ce83d5224473b7ae68405d60.jpg"
-      },
-      {
-        "name": "Banana Shooter",
-        "playtime_forever": 192,
-        "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1949740/3cb7f556be4f82352943d5d031d507c5ea647cd1.jpg"
       }
     ],
     "lastPlayed": "Clair Obscur: Expedition 33"
@@ -113,5 +113,5 @@
       }
     ]
   },
-  "lastUpdated": "2026-03-01T02:47:31.849Z"
+  "lastUpdated": "2026-03-02T02:35:35.759Z"
 }
