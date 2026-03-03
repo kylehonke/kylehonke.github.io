@@ -14,6 +14,11 @@
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/221100/16a985dfee9b093d76a0ffc4cf4c77ba20c2eb0d.jpg"
       },
       {
+        "name": "ARC Raiders",
+        "playtime_forever": 711,
+        "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1808500/c284e73b6f3321864805d66f99924a0da9f0b219.jpg"
+      },
+      {
         "name": "CastleMiner Z",
         "playtime_forever": 654,
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/253430/a9eb03aa5178192cc241764992c4ed57cec437ca.jpg"
@@ -44,17 +49,12 @@
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/304930/e18009fb628b35953826efe47dc3be556b689f4c.jpg"
       },
       {
-        "name": "ARC Raiders",
-        "playtime_forever": 320,
-        "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1808500/c284e73b6f3321864805d66f99924a0da9f0b219.jpg"
-      },
-      {
         "name": "Super Crate Box",
         "playtime_forever": 283,
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/212800/842df7463377f931ce83d5224473b7ae68405d60.jpg"
       }
     ],
-    "lastPlayed": "Clair Obscur: Expedition 33"
+    "lastPlayed": "ARC Raiders"
   },
   "xbox": {
     "gamertag": "grooovyKyle",
@@ -113,5 +113,5 @@
       }
     ]
   },
-  "lastUpdated": "2026-03-02T02:35:35.759Z"
+  "lastUpdated": "2026-03-03T02:38:30.667Z"
 }
