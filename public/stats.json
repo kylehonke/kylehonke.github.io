@@ -15,7 +15,7 @@
       },
       {
         "name": "ARC Raiders",
-        "playtime_forever": 711,
+        "playtime_forever": 1594,
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1808500/c284e73b6f3321864805d66f99924a0da9f0b219.jpg"
       },
       {
@@ -56,11 +56,7 @@
     ],
     "lastPlayed": "ARC Raiders"
   },
-  "xbox": {
-    "gamertag": "grooovyKyle",
-    "gamerscore": "33109",
-    "recentGames": []
-  },
+  "xbox": null,
   "retro": {
     "user": "stormkittyflvcko",
     "hardcorePoints": 64,
@@ -113,5 +109,5 @@
       }
     ]
   },
-  "lastUpdated": "2026-03-03T02:38:30.667Z"
+  "lastUpdated": "2026-03-04T02:31:28.708Z"
 }
