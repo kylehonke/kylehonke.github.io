@@ -9,37 +9,44 @@
     {
         "id": 2,
         "title": "Navi AI",
-        "description": "Navi is a serverless, context-aware AI companion for The Legend of Zelda: Ocarina of Time. Unlike generic chatbots, this 'Navi' is constrained by your current game state via an interactive, retro themed UI (React + Vite + Tailwind CSS).",
+        "description": "Serverless, context-aware AI companion for The Legend of Zelda: Ocarina of Time. Unlike generic chatbots, this 'Navi' is constrained by your current game state via an interactive, retro themed UI (React + Vite + Tailwind CSS).",
         "demoLink": "https://cf-ai-navi-guide.pages.dev/",
         "link": "https://github.com/kylehonke/cf_ai_navi_guide",
         "type": "professional"
     },
     {
         "id": 3,
-        "title": "Graph Data Structure (C++)",
-        "description": "Optimized, undirected graph engineered with an adjacency matrix to achieve O(1) time complexity.  Demonstrates foundational computational theory through independent implementations of recursive Depth-First Search (DFS) and queue-based Breadth-First Search (BFS) algorithms. (C++)",
+        "title": "Graph Data Structure",
+        "description": "Optimized, undirected graph engineered with an adjacency matrix to achieve O(1) time complexity. Demonstrates foundational computational theory through independent implementations of recursive Depth-First Search (DFS) and queue-based Breadth-First Search (BFS) algorithms. (C++)",
         "link": "https://github.com/kylehonke/undirected-unweighted-graph",
         "type": "professional"
     },
     {
         "id": 4,
         "title": "Interactive Portfolio",
-        "description": "This responsive personal website, built with React, Vite & Vanilla CSS. Features a custom minimalist design system, real-time automation via GitHub Actions for statistics, and seamless integration with multiple third-party APIs.",
+        "description": "This responsive personal website, built with React, Vite & Vanilla CSS. Features a minimalist design system, real-time automation (via GitHub Actions) for daily stats updates, and seamless integration with multiple third-party APIs.",
         "link": "https://github.com/kylehonke/kylehonke.github.io",
         "type": "professional"
     },
     {
         "id": 5,
-        "title": "Time-based commit message prefixes",
-        "description": "A tool to automatically add a prefix to commit messages based on the time of day.",
-        "link": "https://github.com/kylehonke/day-night-commit",
-        "type": "fun"
+        "title": "Neural Network Architecture Analysis (Coming Soon)",
+        "description": "An experiment to observe the effects of altering the representational capacity of neural networks. A baseline architecture, consisting of a fully connected network with two hidden layers, was compared against numerous experimental architectures with varying structural complexities. All other hyperparameters were held strictly constant to isolate the architectural variables.",
+        "link": "https://github.com/kylehonke/hidden-layer-impact",
+        "type": "professional"
     },
     {
         "id": 6,
-        "title": "Coming Soon!",
-        "description": "A tool to scrape metadata for retro games.",
-        "link": "https://github.com/kylehonke/retro-game-scraper",
+        "title": "File Copier Utility",
+        "description": "A command line application that securely copies the contents of a source file to a destination file using byte streams. (Java)",
+        "link": "https://github.com/kylehonke/File-Copier",
+        "type": "fun"
+    },
+    {
+        "id": 7,
+        "title": "Day Night Commit",
+        "description": "A lightweight Git hook that automatically prefixes your commit messages with a sun (☀️) or moon (🌙) based on the time of day you are working. Compatible with both Unix and Windows operating systems.",
+        "link": "https://github.com/kylehonke/day-night-commit",
         "type": "fun"
     }
 ]
