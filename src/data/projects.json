@@ -30,8 +30,8 @@
     },
     {
         "id": 5,
-        "title": "Neural Network Architecture Analysis (Coming Soon)",
-        "description": "An experiment to observe the effects of altering the representational capacity of neural networks. A baseline architecture, consisting of a fully connected network with two hidden layers, was compared against numerous experimental architectures with varying structural complexities. All other hyperparameters were held strictly constant to isolate the architectural variables.",
+        "title": "DNN Architecture: Clinical Classification",
+        "description": "Demonstrates design and optimization of deep neural networks using TensorFlow to classify clinical diagnostic data. By engineering custom loss functions and applying structural regularization, the architecture prioritizes critical evaluation metrics like recall while ensuring training stability. Work in progress.",
         "link": "https://github.com/kylehonke/hidden-layer-impact",
         "type": "professional"
     },
