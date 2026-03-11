@@ -181,7 +181,7 @@ const Gaming = () => {
                             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                             onError={(e) => {
                                 e.target.style.display = 'none';
-                                e.target.parentElement.innerText = 'screenshot missing';
+                                e.target.parentElement.innerText = 'Coming Soon!';
                             }}
                         />
                     </div>
