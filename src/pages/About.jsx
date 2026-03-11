@@ -15,9 +15,11 @@ const About = () => {
 
                 <div className="glass-panel" style={{ padding: '3rem', marginBottom: '4rem', background: 'rgba(255,255,255,0.7)' }}>
                     <p style={{ fontSize: '1.1rem', color: '#4a5568', lineHeight: '1.9', marginBottom: '2rem', textAlign: 'center' }}>
-                        I'm a Software Development BAS candidate at ACC with a focused passion for bridging the gap between vigorous software engineering and advanced Machine Learning. My background is rooted in building end-to-end Python pipelines, where I leverage TensorFlow and PyTorch to develop neural networks, time-series forecasting, and regression models.
-                        Beyond the world of data science, I have a strong foundation in systems-level programming with C++ and Java. I thrive on the challenge of implementing complex data structures and algorithms, always adhering to clean Object-Oriented Programming (OOP) principles to ensure my code is as scalable as it is efficient.
-                        Whether I'm optimizing an LSTM model or architecting a responsive web app, my goal is to build intelligent systems that solve real-world problems. I'm constantly exploring the future of human-machine relationships and the technical nuances that make software truly impactful.
+                        Hello! I'm a Software Development Bachelor of Applied Science candidate expecting graduation in December 2026. 
+                        My experience includes engineering machine learning and artificial intelligence applications using Python, TensorFlow, and serverless architectures. 
+                        I am proficient in web development with React and Node, as well as version control and automation via Git and GitHub Actions. 
+                        I possess a core foundation in C++, Java, data structures, and algorithms. 
+                        I'm seeking internship opportunities to apply my technical background to the complex computational problems of tomorrow.
                     </p>
                     <div style={{ width: '40px', height: '2px', background: '#cbd5e0', margin: '0 auto 2rem' }}></div>
                     <p style={{ fontSize: '1.1rem', color: '#718096', fontWeight: '400', textAlign: 'center', textAlign: 'center' }}>
