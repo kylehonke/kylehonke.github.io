@@ -56,11 +56,7 @@
     ],
     "lastPlayed": "ARC Raiders"
   },
-  "xbox": {
-    "gamertag": "grooovyKyle",
-    "gamerscore": "33109",
-    "recentGames": []
-  },
+  "xbox": null,
   "retro": {
     "user": "stormkittyflvcko",
     "hardcorePoints": 64,
@@ -113,5 +109,5 @@
       }
     ]
   },
-  "lastUpdated": "2026-03-13T02:33:39.372Z"
+  "lastUpdated": "2026-03-14T02:31:52.685Z"
 }
