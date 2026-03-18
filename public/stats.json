@@ -9,14 +9,14 @@
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1903340/d48fb3ed033a08bad9bf0a2e1ceb145e58ffe0aa.jpg"
       },
       {
+        "name": "ARC Raiders",
+        "playtime_forever": 5581,
+        "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1808500/c284e73b6f3321864805d66f99924a0da9f0b219.jpg"
+      },
+      {
         "name": "DayZ",
         "playtime_forever": 5556,
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/221100/16a985dfee9b093d76a0ffc4cf4c77ba20c2eb0d.jpg"
-      },
-      {
-        "name": "ARC Raiders",
-        "playtime_forever": 5260,
-        "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1808500/c284e73b6f3321864805d66f99924a0da9f0b219.jpg"
       },
       {
         "name": "CastleMiner Z",
@@ -113,5 +113,5 @@
       }
     ]
   },
-  "lastUpdated": "2026-03-17T02:35:24.064Z"
+  "lastUpdated": "2026-03-18T02:41:53.002Z"
 }
