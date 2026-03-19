@@ -1,0 +1,86 @@
+# robots.txt for kylehonke.github.io
+# Created to optimize SEO while controlling page indexing
+
+# Default rule for all robots
+User-agent: *
+# Allow crawling of main site
+Allow: /
+# Block storm photography page
+Disallow: /extras/storm
+# Block resume PDF
+Disallow: /resume.pdf
+
+# Sitemap location
+Sitemap: https://kylehonke.github.io/sitemap.xml
+
+# Google-specific rules
+User-agent: Googlebot
+Allow: /
+Disallow: /extras/storm
+Disallow: /resume.pdf
+# Crawl delay (optional, in seconds)
+Crawl-delay: 1
+
+# Googlebot Image-specific rules
+User-agent: Googlebot-Image
+# Allow image indexing from most directories
+Allow: /assets/
+# But disallow storm images
+Disallow: /assets/storm/
+
+# Bing-specific rules
+User-agent: Bingbot
+Allow: /
+Disallow: /extras/storm
+Disallow: /resume.pdf
+Crawl-delay: 1
+
+# Yandex-specific rules
+User-agent: Yandex
+Allow: /
+Disallow: /extras/storm
+Disallow: /resume.pdf
+
+# DuckDuckGo-specific rules
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /extras/storm
+Disallow: /resume.pdf
+
+# Baidu-specific rules
+User-agent: Baiduspider
+Allow: /
+Disallow: /extras/storm
+Disallow: /resume.pdf
+
+# Block known bad bots and scrapers
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Block AI training scrapers (optional)
+User-agent: CCBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
