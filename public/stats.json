@@ -5,7 +5,7 @@
     "games": [
       {
         "name": "Clair Obscur: Expedition 33",
-        "playtime_forever": 12914,
+        "playtime_forever": 12961,
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1903340/d48fb3ed033a08bad9bf0a2e1ceb145e58ffe0aa.jpg"
       },
       {
@@ -113,5 +113,5 @@
       }
     ]
   },
-  "lastUpdated": "2026-04-02T02:45:51.956Z"
+  "lastUpdated": "2026-04-03T02:48:45.501Z"
 }
