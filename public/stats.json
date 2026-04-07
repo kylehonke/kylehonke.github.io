@@ -5,7 +5,7 @@
     "games": [
       {
         "name": "Clair Obscur: Expedition 33",
-        "playtime_forever": 13472,
+        "playtime_forever": 13976,
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1903340/d48fb3ed033a08bad9bf0a2e1ceb145e58ffe0aa.jpg"
       },
       {
@@ -54,7 +54,7 @@
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/212800/842df7463377f931ce83d5224473b7ae68405d60.jpg"
       }
     ],
-    "lastPlayed": "ARC Raiders"
+    "lastPlayed": "Clair Obscur: Expedition 33"
   },
   "xbox": {
     "gamertag": "grooovyKyle",
@@ -113,5 +113,5 @@
       }
     ]
   },
-  "lastUpdated": "2026-04-06T02:57:34.252Z"
+  "lastUpdated": "2026-04-07T02:51:12.366Z"
 }
