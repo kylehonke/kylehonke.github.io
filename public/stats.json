@@ -5,12 +5,12 @@
     "games": [
       {
         "name": "Clair Obscur: Expedition 33",
-        "playtime_forever": 13976,
+        "playtime_forever": 14059,
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1903340/d48fb3ed033a08bad9bf0a2e1ceb145e58ffe0aa.jpg"
       },
       {
         "name": "ARC Raiders",
-        "playtime_forever": 6960,
+        "playtime_forever": 7150,
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1808500/c284e73b6f3321864805d66f99924a0da9f0b219.jpg"
       },
       {
@@ -113,5 +113,5 @@
       }
     ]
   },
-  "lastUpdated": "2026-04-07T02:51:12.366Z"
+  "lastUpdated": "2026-04-08T02:52:25.959Z"
 }
