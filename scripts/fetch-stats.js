@@ -12,6 +12,7 @@ const STEAM_KEY = process.env.STEAM_API_KEY;
 const STEAM_ID = process.env.STEAM_ID;
 const XBOX_KEY = process.env.XBOX_API_KEY;
 const XBOX_GAMERTAG = process.env.XBOX_GAMERTAG || 'grooovyKyle';
+const XBOX_XUID = process.env.XBOX_XUID || null;
 const RETRO_KEY = process.env.RETRO_API_KEY;
 const RETRO_USER = process.env.RETRO_USER;
 
@@ -31,9 +32,18 @@ function readExistingStats() {
 }
 
 function unwrapApiResponse(payload) {
-    if (payload && typeof payload === 'object' && Object.prototype.hasOwnProperty.call(payload, 'content')) {
+    if (!payload || typeof payload !== 'object') {
+        return payload;
+    }
+
+    if (Object.prototype.hasOwnProperty.call(payload, 'code') && payload.code !== 200) {
+        return null;
+    }
+
+    if (Object.prototype.hasOwnProperty.call(payload, 'content')) {
         return payload.content;
     }
+
     return payload;
 }
 
@@ -108,11 +118,178 @@ function parsePlaytimeMinutes(title) {
 function parseLastPlayed(title) {
     return (
         title?.titleHistory?.lastTimePlayed ||
+        title?.titleHistory?.lastPlayed ||
         title?.lastTimePlayed ||
         title?.lastPlayed ||
+        title?.lastPlayedAt ||
         title?.history?.lastPlayed ||
         null
     );
+}
+
+function normalizeExistingRecentGames(recentGames) {
+    if (!Array.isArray(recentGames)) {
+        return [];
+    }
+
+    return recentGames
+        .map(game => {
+            if (typeof game === 'string') {
+                return {
+                    title: game,
+                    titleId: null,
+                    playtimeMinutes: 0,
+                    playtimeHours: '0h',
+                    lastPlayed: null,
+                    imageUrl: null
+                };
+            }
+
+            if (!game || typeof game !== 'object') {
+                return null;
+            }
+
+            const playtimeMinutes = toNumber(game.playtimeMinutes ?? game.minutesPlayed ?? game.timePlayed ?? game.playtime, 0);
+
+            return {
+                title: game.title || game.name || game.titleName || 'Unknown Title',
+                titleId: game.titleId ?? game.id ?? null,
+                playtimeMinutes,
+                playtimeHours: game.playtimeHours || toHoursLabel(playtimeMinutes),
+                lastPlayed: game.lastPlayed || game.lastTimePlayed || null,
+                imageUrl: game.imageUrl || game.displayImage || game.displayImageUrl || null
+            };
+        })
+        .filter(Boolean)
+        .slice(0, XBOX_RECENT_TITLE_LIMIT);
+}
+
+function sanitizeXboxForPublic(xbox) {
+    if (!xbox || typeof xbox !== 'object') {
+        return null;
+    }
+
+    return {
+        gamertag: xbox.gamertag || XBOX_GAMERTAG,
+        gamerscore: toNumber(xbox.gamerscore, 0),
+        gamerPictureUrl: xbox.gamerPictureUrl || xbox.profilePicture || xbox.avatar || null,
+        recentGames: normalizeExistingRecentGames(xbox.recentGames),
+        fromCache: Boolean(xbox.fromCache),
+        lastFetchedAt: xbox.lastFetchedAt || null
+    };
+}
+
+function extractTitlesFromPresencePayload(payload) {
+    if (!payload || typeof payload !== 'object') {
+        return [];
+    }
+
+    const titles = [];
+    const lastSeenTimestamp = payload?.lastSeen?.timestamp || null;
+    const lastSeenTitle = payload?.lastSeen?.titleName || null;
+
+    if (Array.isArray(payload.devices)) {
+        for (const device of payload.devices) {
+            if (!Array.isArray(device?.titles)) {
+                continue;
+            }
+
+            for (const deviceTitle of device.titles) {
+                if (!deviceTitle?.name && !deviceTitle?.id) {
+                    continue;
+                }
+
+                titles.push({
+                    name: deviceTitle.name || lastSeenTitle || 'Unknown Title',
+                    titleId: deviceTitle.id || null,
+                    lastTimePlayed: deviceTitle.lastModified || lastSeenTimestamp,
+                    playtimeMinutes: 0
+                });
+            }
+        }
+    }
+
+    if (titles.length === 0 && lastSeenTitle) {
+        titles.push({
+            name: lastSeenTitle,
+            titleId: payload?.lastSeen?.titleId || null,
+            lastTimePlayed: lastSeenTimestamp,
+            playtimeMinutes: 0
+        });
+    }
+
+    return titles;
+}
+
+function extractTitlesFromXboxPayload(payload) {
+    if (!payload) {
+        return [];
+    }
+
+    const candidates = [];
+
+    if (Array.isArray(payload)) {
+        candidates.push(payload);
+    }
+
+    if (Array.isArray(payload.titles)) {
+        candidates.push(payload.titles);
+    }
+
+    if (Array.isArray(payload.titleHistory)) {
+        candidates.push(payload.titleHistory);
+    }
+
+    if (Array.isArray(payload.items)) {
+        candidates.push(payload.items);
+    }
+
+    if (Array.isArray(payload.recentGames)) {
+        candidates.push(payload.recentGames);
+    }
+
+    if (Array.isArray(payload.results?.titles)) {
+        candidates.push(payload.results.titles);
+    }
+
+    if (Array.isArray(payload.data?.titles)) {
+        candidates.push(payload.data.titles);
+    }
+
+    if (Array.isArray(payload.achievements)) {
+        candidates.push(payload.achievements);
+    }
+
+    const presenceTitles = extractTitlesFromPresencePayload(payload);
+    if (presenceTitles.length > 0) {
+        candidates.push(presenceTitles);
+    }
+
+    for (const list of candidates) {
+        const titleLike = list.filter(item => {
+            if (!item || typeof item !== 'object') {
+                return false;
+            }
+
+            return Boolean(
+                item.name ||
+                item.title ||
+                item.titleName ||
+                item.titleId ||
+                item.id ||
+                item.stats ||
+                item.titleHistory ||
+                item.lastPlayed ||
+                item.lastTimePlayed
+            );
+        });
+
+        if (titleLike.length > 0) {
+            return titleLike;
+        }
+    }
+
+    return [];
 }
 
 function normalizeRecentXboxGames(rawTitles, limit = XBOX_RECENT_TITLE_LIMIT) {
@@ -177,11 +354,19 @@ async function fetchXboxJson(pathname) {
             });
 
             if (!response.ok) {
+                console.warn(`Xbox request non-OK (${response.status}) for ${endpoint}`);
                 continue;
             }
 
             const payload = await response.json();
-            return unwrapApiResponse(payload);
+            const unwrapped = unwrapApiResponse(payload);
+
+            if (!unwrapped) {
+                console.warn(`Xbox wrapper payload rejected for ${endpoint}`);
+                continue;
+            }
+
+            return unwrapped;
         } catch (e) {
             console.warn(`Xbox request failed for ${endpoint}`);
         }
@@ -191,17 +376,31 @@ async function fetchXboxJson(pathname) {
 }
 
 async function fetchXboxTitles(xuid) {
-    const pathCandidates = ['/v2/titles'];
+    const pathCandidates = [];
 
     if (xuid) {
-        pathCandidates.push(`/v2/titles/${xuid}`);
+        const safeXuid = encodeURIComponent(xuid);
+        pathCandidates.push(`/v2/titles/${safeXuid}`);
+    }
+
+    pathCandidates.push('/v2/titles');
+
+    if (xuid) {
+        const safeXuid = encodeURIComponent(xuid);
+        pathCandidates.push(`/v3/achievements/player/${safeXuid}`);
+        pathCandidates.push(`/v2/player/titleHistory/${safeXuid}`);
     }
 
     pathCandidates.push('/v2/player/titleHistory');
 
     if (xuid) {
-        pathCandidates.push(`/v2/player/titleHistory/${xuid}`);
+        const safeXuid = encodeURIComponent(xuid);
+        pathCandidates.push(`/v2/achievements/player/${safeXuid}`);
+        pathCandidates.push(`/v2/presence/${safeXuid}`);
     }
+
+    pathCandidates.push('/v2/achievements');
+    pathCandidates.push('/v2/presence');
 
     for (const pathCandidate of pathCandidates) {
         const data = await fetchXboxJson(pathCandidate);
@@ -210,12 +409,9 @@ async function fetchXboxTitles(xuid) {
             continue;
         }
 
-        if (Array.isArray(data.titles)) {
-            return data.titles;
-        }
-
-        if (Array.isArray(data)) {
-            return data;
+        const titles = extractTitlesFromXboxPayload(data);
+        if (titles.length > 0) {
+            return titles;
         }
     }
 
@@ -261,7 +457,7 @@ async function fetchSteamStats() {
     }
 }
 
-async function fetchXboxStats(previousXbox = null) {
+async function fetchXboxStats(previousXbox = null, fallbackXuid = null) {
     if (!XBOX_KEY) {
         console.warn('Xbox env var missing');
         return previousXbox || null;
@@ -277,7 +473,7 @@ async function fetchXboxStats(previousXbox = null) {
         const profileUser = accountData.profileUsers?.[0] || accountData?.people?.[0] || {};
         const settings = profileUser?.settings || [];
 
-        const xuid = profileUser?.id || profileUser?.hostId || accountData?.xuid || previousXbox?.xuid || null;
+        const xuid = XBOX_XUID || profileUser?.id || profileUser?.hostId || accountData?.xuid || fallbackXuid || null;
         const gamertag =
             getSettingValue(settings, ['Gamertag', 'ModernGamertag']) ||
             accountData?.gamertag ||
@@ -295,7 +491,6 @@ async function fetchXboxStats(previousXbox = null) {
 
         const titles = await fetchXboxTitles(xuid);
         const normalizedXbox = {
-            xuid,
             gamertag,
             gamerscore,
             gamerPictureUrl,
@@ -364,14 +559,16 @@ async function fetchRetroStats() {
 async function main() {
     console.log("Fetching stats...");
     const existingStats = readExistingStats();
+    const previousXboxRaw = existingStats?.xbox || null;
+    const previousXbox = sanitizeXboxForPublic(previousXboxRaw);
 
     const steam = await fetchSteamStats();
-    const xbox = await fetchXboxStats(existingStats?.xbox || null);
+    const xbox = await fetchXboxStats(previousXbox, previousXboxRaw?.xuid || null);
     const retro = await fetchRetroStats();
 
     const data = {
         steam: steam ?? existingStats?.steam ?? null,
-        xbox: xbox ?? existingStats?.xbox ?? null,
+        xbox: sanitizeXboxForPublic(xbox ?? previousXbox),
         retro: retro ?? existingStats?.retro ?? null,
         lastUpdated: new Date().toISOString()
     };
