@@ -11,6 +11,42 @@ const Gaming = () => {
             .catch(err => console.error('Failed to load gaming stats:', err));
     }, []);
 
+    const xboxData = stats?.xbox || null;
+    const xboxGamerscore = (() => {
+        if (!xboxData) {
+            return '---';
+        }
+
+        if (typeof xboxData.gamerscore === 'number') {
+            return xboxData.gamerscore.toLocaleString('en-US');
+        }
+
+        if (typeof xboxData.gamerscore === 'string' && xboxData.gamerscore.trim().length > 0) {
+            return xboxData.gamerscore;
+        }
+
+        return '---';
+    })();
+
+    const xboxRecentGames = Array.isArray(xboxData?.recentGames)
+        ? xboxData.recentGames.slice(0, 5).map(game => {
+            if (typeof game === 'string') {
+                return {
+                    title: game,
+                    playtimeHours: '0h'
+                };
+            }
+
+            const title = game?.title || game?.name || 'Unknown Title';
+            const playtimeHours = game?.playtimeHours || (typeof game?.playtimeMinutes === 'number' ? `${Math.round(game.playtimeMinutes / 60)}h` : '0h');
+
+            return {
+                title,
+                playtimeHours
+            };
+        })
+        : [];
+
     return (
         <div className="page-container flex-center">
             <h2 className="section-title">gaming</h2>
@@ -60,21 +96,39 @@ const Gaming = () => {
                         <div className="stat-card glass-panel" style={{ textAlign: 'left', background: 'white', padding: '2rem', border: '1px solid #e2e8f0', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.05)' }}>
                             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1.5rem', alignItems: 'center' }}>
                                 <h3 style={{ fontSize: '1.3rem', fontWeight: '700', color: '#2d3748' }}>xbox</h3>
-                                <span style={{ color: '#a0aec0', fontSize: '0.9rem', fontWeight: '500', background: '#f7fafc', padding: '4px 8px', borderRadius: '4px' }}>@{stats.xbox?.gamertag}</span>
+                                <span style={{ color: '#a0aec0', fontSize: '0.9rem', fontWeight: '500', background: '#f7fafc', padding: '4px 8px', borderRadius: '4px' }}>@{xboxData?.gamertag || 'unknown'}</span>
                             </div>
+
+                            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
+                                {xboxData?.gamerPictureUrl ? (
+                                    <img
+                                        src={xboxData.gamerPictureUrl}
+                                        alt={`${xboxData?.gamertag || 'xbox'} gamer picture`}
+                                        style={{ width: '88px', height: '88px', borderRadius: '50%', objectFit: 'cover', border: '2px solid #edf2f7' }}
+                                        onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                                    />
+                                ) : (
+                                    <div style={{ width: '88px', height: '88px', borderRadius: '50%', border: '2px solid #edf2f7', background: '#f8fafc' }} />
+                                )}
+                            </div>
+
                             <div style={{ marginBottom: '2rem' }}>
-                                <p style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#4a5568', lineHeight: '1' }}>{stats.xbox?.gamerscore}</p>
+                                <p style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#4a5568', lineHeight: '1' }}>{xboxGamerscore}</p>
                                 <span style={{ fontSize: '0.9rem', fontWeight: '500', color: '#a0aec0' }}>Gamerscore</span>
                             </div>
                             <div>
                                 <p style={{ fontSize: '0.8rem', color: '#a0aec0', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Recent</p>
                                 <ul style={{ paddingLeft: '0', fontSize: '1rem', color: '#718096' }}>
-                                    {stats.xbox?.recentGames?.map((g, i) => (
-                                        <li key={i} style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                                    {xboxRecentGames.map((g, i) => (
+                                        <li key={i} style={{ marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                                             <span style={{ width: '6px', height: '6px', backgroundColor: 'var(--pastel-seafoam)', borderRadius: '50%', display: 'inline-block' }}></span>
-                                            {g}
+                                            <span style={{ flex: 1 }}>{g.title}</span>
+                                            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '0.8rem', color: '#a0aec0' }}><Clock size={12} /> {g.playtimeHours}</span>
                                         </li>
                                     ))}
+                                    {xboxRecentGames.length === 0 && (
+                                        <li style={{ listStyle: 'none', color: '#a0aec0', fontSize: '0.9rem' }}>no recent titles</li>
+                                    )}
                                 </ul>
                             </div>
                         </div>
