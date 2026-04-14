@@ -22,7 +22,7 @@ const About = () => {
                         I'm seeking internship opportunities to apply my technical background to the complex computational problems of tomorrow.
                     </p>
                     <div style={{ width: '40px', height: '2px', background: '#cbd5e0', margin: '0 auto 2rem' }}></div>
-                    <p style={{ fontSize: '1.1rem', color: '#718096', fontWeight: '400', textAlign: 'center', textAlign: 'center' }}>
+                    <p style={{ fontSize: '1.1rem', color: '#718096', fontWeight: '400', textAlign: 'center' }}>
                         I'm always open to new connections, collaborations, projects and ideas, so please don't hesitate to reach out!
                     </p>
                 </div>
