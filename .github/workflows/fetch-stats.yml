@@ -26,6 +26,7 @@ jobs:
           STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
           STEAM_ID: ${{ secrets.STEAM_ID }}
           XBOX_API_KEY: ${{ secrets.XBOX_API_KEY }}
+          XBOX_XUID: ${{ secrets.XBOX_XUID }}
           RETRO_API_KEY: ${{ secrets.RETRO_API_KEY }}
           RETRO_USER: ${{ secrets.RETRO_USER }}
         run: node scripts/fetch-stats.js
