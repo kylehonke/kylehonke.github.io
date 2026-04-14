@@ -60,9 +60,50 @@
     "gamertag": "grooovyKyle",
     "gamerscore": 33109,
     "gamerPictureUrl": "https://images-eds-ssl.xboxlive.com/image?url=wHwbXKif8cus8csoZ03RW_ES.ojiJijNBGRVUbTnZKvlHqqbdJfZWiFtiClZ7rrQjjuuYohkY47xC6xY_khj_OihSKAG0gHTcu.NaVyAbapFdweePsDhfMkHEkOM0vOtNbnwnZjOPhgkiGQRIiBi5a06VZkFM5b3DkXT1PlIN6OCqbtLSjBB2mjsaD4RP3uF&format=png",
-    "recentGames": [],
+    "recentGames": [
+      {
+        "title": "Earn a Winged Dagger",
+        "titleId": "1",
+        "playtimeMinutes": 0,
+        "playtimeHours": "0h",
+        "lastPlayed": null,
+        "imageUrl": null
+      },
+      {
+        "title": "Make the Jump",
+        "titleId": "2",
+        "playtimeMinutes": 0,
+        "playtimeHours": "0h",
+        "lastPlayed": null,
+        "imageUrl": null
+      },
+      {
+        "title": "Dancing in the Dark",
+        "titleId": "3",
+        "playtimeMinutes": 0,
+        "playtimeHours": "0h",
+        "lastPlayed": null,
+        "imageUrl": null
+      },
+      {
+        "title": "Save the Bacon",
+        "titleId": "4",
+        "playtimeMinutes": 0,
+        "playtimeHours": "0h",
+        "lastPlayed": null,
+        "imageUrl": null
+      },
+      {
+        "title": "Death From Above",
+        "titleId": "5",
+        "playtimeMinutes": 0,
+        "playtimeHours": "0h",
+        "lastPlayed": null,
+        "imageUrl": null
+      }
+    ],
     "fromCache": false,
-    "lastFetchedAt": "2026-04-14T08:28:29.590Z"
+    "lastFetchedAt": "2026-04-14T09:29:50.125Z"
   },
   "retro": {
     "user": "stormkittyflvcko",
@@ -116,5 +157,5 @@
       }
     ]
   },
-  "lastUpdated": "2026-04-14T09:07:35.325Z"
+  "lastUpdated": "2026-04-14T09:29:50.648Z"
 }
