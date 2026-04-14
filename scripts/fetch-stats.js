@@ -256,8 +256,12 @@ function extractTitlesFromXboxPayload(payload) {
         candidates.push(payload.data.titles);
     }
 
-    if (Array.isArray(payload.achievements)) {
-        candidates.push(payload.achievements);
+    if (Array.isArray(payload.Titles)) {
+        candidates.push(payload.Titles);
+    }
+
+    if (Array.isArray(payload.games)) {
+        candidates.push(payload.games);
     }
 
     const presenceTitles = extractTitlesFromPresencePayload(payload);
@@ -271,17 +275,33 @@ function extractTitlesFromXboxPayload(payload) {
                 return false;
             }
 
-            return Boolean(
-                item.name ||
-                item.title ||
-                item.titleName ||
+            const hasName = Boolean(item.name || item.title || item.titleName);
+
+            const hasTitleSignal = Boolean(
                 item.titleId ||
-                item.id ||
-                item.stats ||
+                item.modernTitleId ||
                 item.titleHistory ||
+                item.displayImage ||
+                item.displayImageUrl ||
+                item.gamePass ||
+                item.stats ||
+                item.devices ||
                 item.lastPlayed ||
-                item.lastTimePlayed
+                item.lastTimePlayed ||
+                item.xboxLiveTier ||
+                item.type === 'Game'
             );
+
+            const looksLikeAchievementOnly = Boolean(
+                (item.description || item.lockedDescription || item.progressState || item.progression || item.rewards || item.achievementType || item.timeUnlocked || item.isUnlocked !== undefined) &&
+                !hasTitleSignal
+            );
+
+            if (!hasName || looksLikeAchievementOnly) {
+                return false;
+            }
+
+            return hasTitleSignal;
         });
 
         if (titleLike.length > 0) {
@@ -297,8 +317,30 @@ function normalizeRecentXboxGames(rawTitles, limit = XBOX_RECENT_TITLE_LIMIT) {
         return [];
     }
 
+    const seenKeys = new Set();
+
     const normalized = rawTitles
         .map(title => {
+            if (!title || typeof title !== 'object') {
+                return null;
+            }
+
+            const looksLikeAchievementOnly = Boolean(
+                (title.description || title.lockedDescription || title.progressState || title.progression || title.rewards || title.achievementType || title.timeUnlocked || title.isUnlocked !== undefined) &&
+                !title.titleHistory &&
+                !title.displayImage &&
+                !title.displayImageUrl &&
+                !title.stats &&
+                !title.gamePass &&
+                !title.devices &&
+                !title.modernTitleId &&
+                !title.xboxLiveTier
+            );
+
+            if (looksLikeAchievementOnly) {
+                return null;
+            }
+
             const playtimeMinutes = parsePlaytimeMinutes(title);
 
             return {
@@ -310,7 +352,18 @@ function normalizeRecentXboxGames(rawTitles, limit = XBOX_RECENT_TITLE_LIMIT) {
                 imageUrl: title?.displayImage || title?.displayImageUrl || title?.image || null
             };
         })
+        .filter(Boolean)
         .filter(game => game.title && game.title !== 'Unknown Title')
+        .filter(game => {
+            const key = game.titleId ? `id:${game.titleId}` : `name:${game.title.toLowerCase()}`;
+
+            if (seenKeys.has(key)) {
+                return false;
+            }
+
+            seenKeys.add(key);
+            return true;
+        })
         .sort((a, b) => {
             const aTime = a.lastPlayed ? new Date(a.lastPlayed).getTime() : 0;
             const bTime = b.lastPlayed ? new Date(b.lastPlayed).getTime() : 0;
@@ -337,7 +390,7 @@ function mergeXboxData(nextXbox, fallbackXbox) {
         gamerPictureUrl: nextXbox.gamerPictureUrl || fallbackXbox.gamerPictureUrl || null,
         recentGames: (Array.isArray(nextXbox.recentGames) && nextXbox.recentGames.length > 0)
             ? nextXbox.recentGames
-            : (fallbackXbox.recentGames || [])
+            : (nextXbox.fromCache ? (fallbackXbox.recentGames || []) : [])
     };
 }
 
