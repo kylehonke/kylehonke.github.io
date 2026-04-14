@@ -58,8 +58,12 @@
   },
   "xbox": {
     "gamertag": "grooovyKyle",
-    "gamerscore": "0",
-    "recentGames": []
+    "gamerscore": 33109,
+    "recentGames": [],
+    "xuid": "2533274919374766",
+    "gamerPictureUrl": "https://images-eds-ssl.xboxlive.com/image?url=wHwbXKif8cus8csoZ03RW_ES.ojiJijNBGRVUbTnZKvlHqqbdJfZWiFtiClZ7rrQjjuuYohkY47xC6xY_khj_OihSKAG0gHTcu.NaVyAbapFdweePsDhfMkHEkOM0vOtNbnwnZjOPhgkiGQRIiBi5a06VZkFM5b3DkXT1PlIN6OCqbtLSjBB2mjsaD4RP3uF&format=png",
+    "fromCache": false,
+    "lastFetchedAt": "2026-04-14T08:28:29.590Z"
   },
   "retro": {
     "user": "stormkittyflvcko",
@@ -113,5 +117,5 @@
       }
     ]
   },
-  "lastUpdated": "2026-04-14T07:35:49.365Z"
+  "lastUpdated": "2026-04-14T08:28:30.008Z"
 }
