@@ -15,11 +15,11 @@ const About = () => {
 
                 <div className="glass-panel" style={{ padding: '3rem', marginBottom: '4rem', background: 'rgba(255,255,255,0.7)' }}>
                     <p style={{ fontSize: '1.1rem', color: '#4a5568', lineHeight: '1.9', marginBottom: '2rem', textAlign: 'center' }}>
-                        Hello! I'm a Software Development Bachelor of Applied Science candidate expecting graduation in December 2026. 
+                        Hi! I'm a Software Development Bachelor of Applied Science candidate expecting graduation in December 2026. 
                         My experience includes engineering machine learning and artificial intelligence applications using Python, TensorFlow, and serverless architectures. 
                         I am proficient in web development with React and Node, as well as version control and automation via Git and GitHub Actions. 
                         I possess a core foundation in C++, Java, data structures, and algorithms. 
-                        I'm seeking internship opportunities to apply my technical background to the complex computational problems of tomorrow.
+                        My current focus involves contributing to the engineering team at Clozure as a Junior Software Developer Intern.
                     </p>
                     <div style={{ width: '40px', height: '2px', background: '#cbd5e0', margin: '0 auto 2rem' }}></div>
                     <p style={{ fontSize: '1.1rem', color: '#718096', fontWeight: '400', textAlign: 'center' }}>
