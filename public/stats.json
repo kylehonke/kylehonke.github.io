@@ -10,7 +10,7 @@
       },
       {
         "name": "ARC Raiders",
-        "playtime_forever": 8750,
+        "playtime_forever": 9000,
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1808500/c284e73b6f3321864805d66f99924a0da9f0b219.jpg"
       },
       {
@@ -62,7 +62,7 @@
     "gamerPictureUrl": "https://images-eds-ssl.xboxlive.com/image?url=wHwbXKif8cus8csoZ03RW_ES.ojiJijNBGRVUbTnZKvlHqqbdJfZWiFtiClZ7rrQjjuuYohkY47xC6xY_khj_OihSKAG0gHTcu.NaVyAbapFdweePsDhfMkHEkOM0vOtNbnwnZjOPhgkiGQRIiBi5a06VZkFM5b3DkXT1PlIN6OCqbtLSjBB2mjsaD4RP3uF&format=png",
     "recentGames": [],
     "fromCache": false,
-    "lastFetchedAt": "2026-05-12T07:28:15.896Z"
+    "lastFetchedAt": "2026-05-13T03:51:50.600Z"
   },
   "retro": {
     "user": "stormkittyflvcko",
@@ -116,5 +116,5 @@
       }
     ]
   },
-  "lastUpdated": "2026-05-12T07:28:16.227Z"
+  "lastUpdated": "2026-05-13T03:51:50.964Z"
 }
