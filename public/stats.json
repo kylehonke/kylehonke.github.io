@@ -62,16 +62,16 @@
     "gamerPictureUrl": "https://images-eds-ssl.xboxlive.com/image?url=wHwbXKif8cus8csoZ03RW_ES.ojiJijNBGRVUbTnZKvlHqqbdJfZWiFtiClZ7rrQjjuuYohkY47xC6xY_khj_OihSKAG0gHTcu.NaVyAbapFdweePsDhfMkHEkOM0vOtNbnwnZjOPhgkiGQRIiBi5a06VZkFM5b3DkXT1PlIN6OCqbtLSjBB2mjsaD4RP3uF&format=png",
     "recentGames": [],
     "fromCache": false,
-    "lastFetchedAt": "2026-05-21T04:11:41.152Z"
+    "lastFetchedAt": "2026-05-22T04:06:30.221Z"
   },
   "retro": {
     "user": "stormkittyflvcko",
     "hardcorePoints": 64,
     "softcorePoints": 245,
     "lastGame": {
-      "title": "The Legend of Zelda: Majora's Mask",
+      "title": "The Legend of Zelda: Ocarina of Time",
       "consoleName": "Nintendo 64",
-      "icon": "https://media.retroachievements.org/Images/045842.png"
+      "icon": "https://media.retroachievements.org/Images/022051.png"
     },
     "recentAchievements": [
       {
@@ -116,5 +116,5 @@
       }
     ]
   },
-  "lastUpdated": "2026-05-21T04:11:41.478Z"
+  "lastUpdated": "2026-05-22T04:06:30.492Z"
 }
