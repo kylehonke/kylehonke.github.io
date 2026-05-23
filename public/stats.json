@@ -62,11 +62,11 @@
     "gamerPictureUrl": "https://images-eds-ssl.xboxlive.com/image?url=wHwbXKif8cus8csoZ03RW_ES.ojiJijNBGRVUbTnZKvlHqqbdJfZWiFtiClZ7rrQjjuuYohkY47xC6xY_khj_OihSKAG0gHTcu.NaVyAbapFdweePsDhfMkHEkOM0vOtNbnwnZjOPhgkiGQRIiBi5a06VZkFM5b3DkXT1PlIN6OCqbtLSjBB2mjsaD4RP3uF&format=png",
     "recentGames": [],
     "fromCache": false,
-    "lastFetchedAt": "2026-05-22T04:06:30.221Z"
+    "lastFetchedAt": "2026-05-23T03:44:50.882Z"
   },
   "retro": {
     "user": "stormkittyflvcko",
-    "hardcorePoints": 64,
+    "hardcorePoints": 99,
     "softcorePoints": 245,
     "lastGame": {
       "title": "The Legend of Zelda: Ocarina of Time",
@@ -75,46 +75,46 @@
     },
     "recentAchievements": [
       {
-        "title": "Fungus Finder",
-        "game": "The Legend of Zelda: Majora's Mask",
-        "points": 2,
-        "dateAwarded": "2026-02-17 19:34:39",
-        "badgeUrl": "https://media.retroachievements.org/Badge/613086.png",
-        "hardcore": true
-      },
-      {
-        "title": "Princess in a Bottle",
-        "game": "The Legend of Zelda: Majora's Mask",
-        "points": 2,
-        "dateAwarded": "2026-02-17 19:22:24",
-        "badgeUrl": "https://media.retroachievements.org/Badge/613103.png",
-        "hardcore": true
-      },
-      {
-        "title": "Masked Jungle Warrior",
-        "game": "The Legend of Zelda: Majora's Mask",
+        "title": "Catch Me If You Can",
+        "game": "The Legend of Zelda: Ocarina of Time",
         "points": 5,
-        "dateAwarded": "2026-02-17 19:17:17",
-        "badgeUrl": "https://media.retroachievements.org/Badge/613112.png",
+        "dateAwarded": "2026-05-22 07:05:46",
+        "badgeUrl": "https://media.retroachievements.org/Badge/158158.png",
         "hardcore": true
       },
       {
-        "title": "Archer of Time",
-        "game": "The Legend of Zelda: Majora's Mask",
+        "title": "Cuccos' Revenge",
+        "game": "The Legend of Zelda: Ocarina of Time",
         "points": 5,
-        "dateAwarded": "2026-02-17 18:44:56",
-        "badgeUrl": "https://media.retroachievements.org/Badge/613067.png",
+        "dateAwarded": "2026-05-22 06:52:56",
+        "badgeUrl": "https://media.retroachievements.org/Badge/158159.png",
         "hardcore": true
       },
       {
-        "title": "Chomp Chomp",
-        "game": "The Legend of Zelda: Majora's Mask",
-        "points": 2,
-        "dateAwarded": "2026-02-13 15:07:41",
-        "badgeUrl": "https://media.retroachievements.org/Badge/613069.png",
+        "title": "A Royal Autograph",
+        "game": "The Legend of Zelda: Ocarina of Time",
+        "points": 5,
+        "dateAwarded": "2026-05-22 06:46:45",
+        "badgeUrl": "https://media.retroachievements.org/Badge/158120.png",
+        "hardcore": true
+      },
+      {
+        "title": "Troublemaker",
+        "game": "The Legend of Zelda: Ocarina of Time",
+        "points": 5,
+        "dateAwarded": "2026-05-22 06:10:05",
+        "badgeUrl": "https://media.retroachievements.org/Badge/158151.png",
+        "hardcore": true
+      },
+      {
+        "title": "Rise and Shine!!",
+        "game": "The Legend of Zelda: Ocarina of Time",
+        "points": 5,
+        "dateAwarded": "2026-05-22 06:04:03",
+        "badgeUrl": "https://media.retroachievements.org/Badge/158119.png",
         "hardcore": true
       }
     ]
   },
-  "lastUpdated": "2026-05-22T04:06:30.492Z"
+  "lastUpdated": "2026-05-23T03:44:51.048Z"
 }
