@@ -5,7 +5,7 @@
     "games": [
       {
         "name": "Clair Obscur: Expedition 33",
-        "playtime_forever": 15484,
+        "playtime_forever": 15552,
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1903340/d48fb3ed033a08bad9bf0a2e1ceb145e58ffe0aa.jpg"
       },
       {
@@ -61,12 +61,12 @@
     "gamerscore": 33199,
     "gamerPictureUrl": "https://images-eds-ssl.xboxlive.com/image?url=wHwbXKif8cus8csoZ03RW_ES.ojiJijNBGRVUbTnZKvlHqqbdJfZWiFtiClZ7rrQjjuuYohkY47xC6xY_khj_OihSKAG0gHTcu.NaVyAbapFdweePsDhfMkHEkOM0vOtNbnwnZjOPhgkiGQRIiBi5a06VZkFM5b3DkXT1PlIN6OCqbtLSjBB2mjsaD4RP3uF&format=png",
     "recentGames": [],
-    "fromCache": true,
-    "lastFetchedAt": "2026-05-24T04:05:14.929Z"
+    "fromCache": false,
+    "lastFetchedAt": "2026-05-25T04:17:00.884Z"
   },
   "retro": {
     "user": "stormkittyflvcko",
-    "hardcorePoints": 99,
+    "hardcorePoints": 124,
     "softcorePoints": 245,
     "lastGame": {
       "title": "The Legend of Zelda: Ocarina of Time",
@@ -75,46 +75,46 @@
     },
     "recentAchievements": [
       {
-        "title": "Catch Me If You Can",
+        "title": "You Can Be a Star",
         "game": "The Legend of Zelda: Ocarina of Time",
         "points": 5,
-        "dateAwarded": "2026-05-22 07:05:46",
-        "badgeUrl": "https://media.retroachievements.org/Badge/158158.png",
+        "dateAwarded": "2026-05-24 12:20:50",
+        "badgeUrl": "https://media.retroachievements.org/Badge/158155.png",
         "hardcore": true
       },
       {
-        "title": "Cuccos' Revenge",
+        "title": "Bullseye!!",
         "game": "The Legend of Zelda: Ocarina of Time",
         "points": 5,
-        "dateAwarded": "2026-05-22 06:52:56",
-        "badgeUrl": "https://media.retroachievements.org/Badge/158159.png",
+        "dateAwarded": "2026-05-24 12:15:21",
+        "badgeUrl": "https://media.retroachievements.org/Badge/158154.png",
         "hardcore": true
       },
       {
-        "title": "A Royal Autograph",
+        "title": "Bunches of Twigs",
         "game": "The Legend of Zelda: Ocarina of Time",
         "points": 5,
-        "dateAwarded": "2026-05-22 06:46:45",
-        "badgeUrl": "https://media.retroachievements.org/Badge/158120.png",
+        "dateAwarded": "2026-05-24 12:13:56",
+        "badgeUrl": "https://media.retroachievements.org/Badge/158156.png",
         "hardcore": true
       },
       {
-        "title": "Troublemaker",
+        "title": "Dance Into the Fire",
         "game": "The Legend of Zelda: Ocarina of Time",
         "points": 5,
-        "dateAwarded": "2026-05-22 06:10:05",
-        "badgeUrl": "https://media.retroachievements.org/Badge/158151.png",
+        "dateAwarded": "2026-05-24 12:11:43",
+        "badgeUrl": "https://media.retroachievements.org/Badge/158121.png",
         "hardcore": true
       },
       {
-        "title": "Rise and Shine!!",
+        "title": "Shield Raider",
         "game": "The Legend of Zelda: Ocarina of Time",
         "points": 5,
-        "dateAwarded": "2026-05-22 06:04:03",
-        "badgeUrl": "https://media.retroachievements.org/Badge/158119.png",
+        "dateAwarded": "2026-05-24 11:44:03",
+        "badgeUrl": "https://media.retroachievements.org/Badge/158157.png",
         "hardcore": true
       }
     ]
   },
-  "lastUpdated": "2026-05-24T04:05:15.181Z"
+  "lastUpdated": "2026-05-25T04:17:01.182Z"
 }
