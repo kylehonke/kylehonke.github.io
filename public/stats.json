@@ -61,12 +61,12 @@
     "gamerscore": 33199,
     "gamerPictureUrl": "https://images-eds-ssl.xboxlive.com/image?url=wHwbXKif8cus8csoZ03RW_ES.ojiJijNBGRVUbTnZKvlHqqbdJfZWiFtiClZ7rrQjjuuYohkY47xC6xY_khj_OihSKAG0gHTcu.NaVyAbapFdweePsDhfMkHEkOM0vOtNbnwnZjOPhgkiGQRIiBi5a06VZkFM5b3DkXT1PlIN6OCqbtLSjBB2mjsaD4RP3uF&format=png",
     "recentGames": [],
-    "fromCache": false,
-    "lastFetchedAt": "2026-05-28T04:04:47.058Z"
+    "fromCache": true,
+    "lastFetchedAt": "2026-05-29T04:06:46.723Z"
   },
   "retro": {
     "user": "stormkittyflvcko",
-    "hardcorePoints": 149,
+    "hardcorePoints": 174,
     "softcorePoints": 245,
     "lastGame": {
       "title": "The Legend of Zelda: Ocarina of Time",
@@ -75,46 +75,46 @@
     },
     "recentAchievements": [
       {
-        "title": "A Pretty Face",
+        "title": "The Way the World Learns to Dive",
         "game": "The Legend of Zelda: Ocarina of Time",
         "points": 5,
-        "dateAwarded": "2026-05-26 07:26:15",
-        "badgeUrl": "https://media.retroachievements.org/Badge/158170.png",
+        "dateAwarded": "2026-05-28 17:06:18",
+        "badgeUrl": "https://media.retroachievements.org/Badge/158561.png",
         "hardcore": true
       },
       {
-        "title": "On Fire",
+        "title": "A Man's Best Friend",
         "game": "The Legend of Zelda: Ocarina of Time",
         "points": 5,
-        "dateAwarded": "2026-05-26 07:19:39",
-        "badgeUrl": "https://media.retroachievements.org/Badge/158165.png",
+        "dateAwarded": "2026-05-28 16:47:13",
+        "badgeUrl": "https://media.retroachievements.org/Badge/158194.png",
         "hardcore": true
       },
       {
-        "title": "Magic Beans",
+        "title": "Walking on a Tightrope",
         "game": "The Legend of Zelda: Ocarina of Time",
         "points": 5,
-        "dateAwarded": "2026-05-26 07:15:50",
-        "badgeUrl": "https://media.retroachievements.org/Badge/158167.png",
+        "dateAwarded": "2026-05-28 16:35:25",
+        "badgeUrl": "https://media.retroachievements.org/Badge/158161.png",
         "hardcore": true
       },
       {
-        "title": "You Spin Me Round",
+        "title": "Roll Roll and Away",
         "game": "The Legend of Zelda: Ocarina of Time",
         "points": 5,
-        "dateAwarded": "2026-05-26 07:00:55",
-        "badgeUrl": "https://media.retroachievements.org/Badge/158162.png",
+        "dateAwarded": "2026-05-28 16:33:25",
+        "badgeUrl": "https://media.retroachievements.org/Badge/158160.png",
         "hardcore": true
       },
       {
-        "title": "Soul Brothers",
+        "title": "Stocking Nuts",
         "game": "The Legend of Zelda: Ocarina of Time",
         "points": 5,
-        "dateAwarded": "2026-05-26 06:54:57",
-        "badgeUrl": "https://media.retroachievements.org/Badge/158123.png",
+        "dateAwarded": "2026-05-28 16:30:24",
+        "badgeUrl": "https://media.retroachievements.org/Badge/511029.png",
         "hardcore": true
       }
     ]
   },
-  "lastUpdated": "2026-05-28T04:04:47.282Z"
+  "lastUpdated": "2026-05-29T04:06:47.071Z"
 }
