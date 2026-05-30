@@ -5,7 +5,7 @@
     "games": [
       {
         "name": "Clair Obscur: Expedition 33",
-        "playtime_forever": 15552,
+        "playtime_forever": 15605,
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1903340/d48fb3ed033a08bad9bf0a2e1ceb145e58ffe0aa.jpg"
       },
       {
@@ -61,12 +61,12 @@
     "gamerscore": 33199,
     "gamerPictureUrl": "https://images-eds-ssl.xboxlive.com/image?url=wHwbXKif8cus8csoZ03RW_ES.ojiJijNBGRVUbTnZKvlHqqbdJfZWiFtiClZ7rrQjjuuYohkY47xC6xY_khj_OihSKAG0gHTcu.NaVyAbapFdweePsDhfMkHEkOM0vOtNbnwnZjOPhgkiGQRIiBi5a06VZkFM5b3DkXT1PlIN6OCqbtLSjBB2mjsaD4RP3uF&format=png",
     "recentGames": [],
-    "fromCache": true,
-    "lastFetchedAt": "2026-05-29T04:06:46.723Z"
+    "fromCache": false,
+    "lastFetchedAt": "2026-05-30T03:53:44.059Z"
   },
   "retro": {
     "user": "stormkittyflvcko",
-    "hardcorePoints": 174,
+    "hardcorePoints": 184,
     "softcorePoints": 245,
     "lastGame": {
       "title": "The Legend of Zelda: Ocarina of Time",
@@ -74,6 +74,22 @@
       "icon": "https://media.retroachievements.org/Images/022051.png"
     },
     "recentAchievements": [
+      {
+        "title": "Take Me Away",
+        "game": "The Legend of Zelda: Ocarina of Time",
+        "points": 5,
+        "dateAwarded": "2026-05-29 05:29:51",
+        "badgeUrl": "https://media.retroachievements.org/Badge/158169.png",
+        "hardcore": true
+      },
+      {
+        "title": "Wedding Band",
+        "game": "The Legend of Zelda: Ocarina of Time",
+        "points": 5,
+        "dateAwarded": "2026-05-29 05:26:15",
+        "badgeUrl": "https://media.retroachievements.org/Badge/158125.png",
+        "hardcore": true
+      },
       {
         "title": "The Way the World Learns to Dive",
         "game": "The Legend of Zelda: Ocarina of Time",
@@ -97,24 +113,8 @@
         "dateAwarded": "2026-05-28 16:35:25",
         "badgeUrl": "https://media.retroachievements.org/Badge/158161.png",
         "hardcore": true
-      },
-      {
-        "title": "Roll Roll and Away",
-        "game": "The Legend of Zelda: Ocarina of Time",
-        "points": 5,
-        "dateAwarded": "2026-05-28 16:33:25",
-        "badgeUrl": "https://media.retroachievements.org/Badge/158160.png",
-        "hardcore": true
-      },
-      {
-        "title": "Stocking Nuts",
-        "game": "The Legend of Zelda: Ocarina of Time",
-        "points": 5,
-        "dateAwarded": "2026-05-28 16:30:24",
-        "badgeUrl": "https://media.retroachievements.org/Badge/511029.png",
-        "hardcore": true
       }
     ]
   },
-  "lastUpdated": "2026-05-29T04:06:47.071Z"
+  "lastUpdated": "2026-05-30T03:53:44.376Z"
 }
