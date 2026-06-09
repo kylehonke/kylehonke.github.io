@@ -62,11 +62,11 @@
     "gamerPictureUrl": "https://images-eds-ssl.xboxlive.com/image?url=wHwbXKif8cus8csoZ03RW_ES.ojiJijNBGRVUbTnZKvlHqqbdJfZWiFtiClZ7rrQjjuuYohkY47xC6xY_khj_OihSKAG0gHTcu.NaVyAbapFdweePsDhfMkHEkOM0vOtNbnwnZjOPhgkiGQRIiBi5a06VZkFM5b3DkXT1PlIN6OCqbtLSjBB2mjsaD4RP3uF&format=png",
     "recentGames": [],
     "fromCache": false,
-    "lastFetchedAt": "2026-06-08T04:27:23.445Z"
+    "lastFetchedAt": "2026-06-09T03:59:37.435Z"
   },
   "retro": {
     "user": "stormkittyflvcko",
-    "hardcorePoints": 184,
+    "hardcorePoints": 214,
     "softcorePoints": 245,
     "lastGame": {
       "title": "The Legend of Zelda: Ocarina of Time",
@@ -75,46 +75,46 @@
     },
     "recentAchievements": [
       {
-        "title": "Take Me Away",
+        "title": "Hook Me Away",
         "game": "The Legend of Zelda: Ocarina of Time",
         "points": 5,
-        "dateAwarded": "2026-05-29 05:29:51",
-        "badgeUrl": "https://media.retroachievements.org/Badge/158169.png",
+        "dateAwarded": "2026-06-08 04:33:55",
+        "badgeUrl": "https://media.retroachievements.org/Badge/158174.png",
         "hardcore": true
       },
       {
-        "title": "Wedding Band",
+        "title": "Hero of Time",
         "game": "The Legend of Zelda: Ocarina of Time",
         "points": 5,
-        "dateAwarded": "2026-05-29 05:26:15",
-        "badgeUrl": "https://media.retroachievements.org/Badge/158125.png",
+        "dateAwarded": "2026-06-08 02:36:55",
+        "badgeUrl": "https://media.retroachievements.org/Badge/158127.png",
         "hardcore": true
       },
       {
-        "title": "The Way the World Learns to Dive",
+        "title": "Secrets Detector",
         "game": "The Legend of Zelda: Ocarina of Time",
         "points": 5,
-        "dateAwarded": "2026-05-28 17:06:18",
-        "badgeUrl": "https://media.retroachievements.org/Badge/158561.png",
+        "dateAwarded": "2026-06-08 02:15:19",
+        "badgeUrl": "https://media.retroachievements.org/Badge/158195.png",
         "hardcore": true
       },
       {
-        "title": "A Man's Best Friend",
+        "title": "Last Breath",
         "game": "The Legend of Zelda: Ocarina of Time",
         "points": 5,
-        "dateAwarded": "2026-05-28 16:47:13",
-        "badgeUrl": "https://media.retroachievements.org/Badge/158194.png",
+        "dateAwarded": "2026-06-08 01:45:09",
+        "badgeUrl": "https://media.retroachievements.org/Badge/158171.png",
         "hardcore": true
       },
       {
-        "title": "Walking on a Tightrope",
+        "title": "Damsel in Distress",
         "game": "The Legend of Zelda: Ocarina of Time",
         "points": 5,
-        "dateAwarded": "2026-05-28 16:35:25",
-        "badgeUrl": "https://media.retroachievements.org/Badge/158161.png",
+        "dateAwarded": "2026-06-08 01:43:28",
+        "badgeUrl": "https://media.retroachievements.org/Badge/158126.png",
         "hardcore": true
       }
     ]
   },
-  "lastUpdated": "2026-06-08T04:27:23.742Z"
+  "lastUpdated": "2026-06-09T03:59:37.813Z"
 }
