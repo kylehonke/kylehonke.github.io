@@ -2,7 +2,7 @@
     {
         "id": 1,
         "title": "LSTM Models for Time Series Analysis",
-        "description": "Data retrieval, data processing, model selection, and model evaluation are all controlled via hyperparameters in a single config.py file. This architecture allows for instant comparison between Simple, Stacked, and Bidirectional Machine Learning models for time series analysis.",
+        "description": "Data retrieval, data processing, model selection, and model evaluation are all controlled via hyperparameters in a single config.py file. This architecture allows for instant comparison between Simple, Stacked, and Bidirectional LSTM models for time series analysis.",
         "link": "https://github.com/kylehonke/lstm-energy",
         "type": "professional"
     },
@@ -16,34 +16,41 @@
     },
     {
         "id": 3,
+        "title": "Predictive Maintenance via Deep Representation Learning",
+        "description": "RUL forecasting using stacked GRU autoencoders, temporal attention, and NASA C-MAPSS turbofan sensor data. Outperformed a 51-feature baseline LSTM utilizing only 17 raw sensor channels. Evaluated using the asymmetric NASA Scoring Function to heavily penalize late predictions, aligning the model with real-world, safety-critical industrial constraints.",
+        "link": "https://github.com/kylehonke/NASA-CMAPSS-RUL-Prediction",
+        "type": "professional"
+    },
+    {
+        "id": 4,
         "title": "Graph Data Structure",
         "description": "Optimized, undirected graph engineered with an adjacency matrix to achieve O(1) time complexity. Demonstrates foundational computational theory through independent implementations of recursive Depth-First Search (DFS) and queue-based Breadth-First Search (BFS) algorithms. (C++)",
         "link": "https://github.com/kylehonke/undirected-unweighted-graph",
         "type": "professional"
     },
     {
-        "id": 4,
+        "id": 5,
         "title": "Interactive Portfolio",
         "description": "This responsive personal website, built with React, Vite & Vanilla CSS. Features a minimalist design system, real-time automation (via GitHub Actions) for daily stats updates, and seamless integration with multiple third-party APIs.",
         "link": "https://github.com/kylehonke/kylehonke.github.io",
         "type": "professional"
     },
     {
-        "id": 5,
+        "id": 6,
         "title": "DNN Architecture: Clinical Classification",
         "description": "Demonstrates design and optimization of deep neural networks using TensorFlow to classify clinical diagnostic data. By engineering custom loss functions and applying structural regularization, the architecture prioritizes critical evaluation metrics like recall while ensuring training stability. Work in progress.",
         "link": "https://github.com/kylehonke/hidden-layer-impact",
         "type": "professional"
     },
     {
-        "id": 6,
+        "id": 7,
         "title": "File Copier Utility",
         "description": "A command line application that securely copies the contents of a source file to a destination file using byte streams. (Java)",
         "link": "https://github.com/kylehonke/File-Copier",
         "type": "fun"
     },
     {
-        "id": 7,
+        "id": 8,
         "title": "Day Night Commit",
         "description": "A lightweight Git hook that automatically prefixes your commit messages with a sun (☀️) or moon (🌙) based on the time of day you are working. Compatible with both Unix and Windows operating systems.",
         "link": "https://github.com/kylehonke/day-night-commit",
