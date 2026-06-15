@@ -62,11 +62,11 @@
     "gamerPictureUrl": "https://images-eds-ssl.xboxlive.com/image?url=wHwbXKif8cus8csoZ03RW_ES.ojiJijNBGRVUbTnZKvlHqqbdJfZWiFtiClZ7rrQjjuuYohkY47xC6xY_khj_OihSKAG0gHTcu.NaVyAbapFdweePsDhfMkHEkOM0vOtNbnwnZjOPhgkiGQRIiBi5a06VZkFM5b3DkXT1PlIN6OCqbtLSjBB2mjsaD4RP3uF&format=png",
     "recentGames": [],
     "fromCache": false,
-    "lastFetchedAt": "2026-06-14T04:42:41.960Z"
+    "lastFetchedAt": "2026-06-15T04:57:08.780Z"
   },
   "retro": {
     "user": "stormkittyflvcko",
-    "hardcorePoints": 214,
+    "hardcorePoints": 219,
     "softcorePoints": 245,
     "lastGame": {
       "title": "The Legend of Zelda: Ocarina of Time",
@@ -74,6 +74,14 @@
       "icon": "https://media.retroachievements.org/Images/022051.png"
     },
     "recentAchievements": [
+      {
+        "title": "A Woman's Best Friend",
+        "game": "The Legend of Zelda: Ocarina of Time",
+        "points": 5,
+        "dateAwarded": "2026-06-14 11:01:17",
+        "badgeUrl": "https://media.retroachievements.org/Badge/158196.png",
+        "hardcore": true
+      },
       {
         "title": "Hook Me Away",
         "game": "The Legend of Zelda: Ocarina of Time",
@@ -105,16 +113,8 @@
         "dateAwarded": "2026-06-08 01:45:09",
         "badgeUrl": "https://media.retroachievements.org/Badge/158171.png",
         "hardcore": true
-      },
-      {
-        "title": "Damsel in Distress",
-        "game": "The Legend of Zelda: Ocarina of Time",
-        "points": 5,
-        "dateAwarded": "2026-06-08 01:43:28",
-        "badgeUrl": "https://media.retroachievements.org/Badge/158126.png",
-        "hardcore": true
       }
     ]
   },
-  "lastUpdated": "2026-06-14T04:42:42.287Z"
+  "lastUpdated": "2026-06-15T04:57:09.112Z"
 }
