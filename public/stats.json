@@ -19,6 +19,11 @@
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/221100/16a985dfee9b093d76a0ffc4cf4c77ba20c2eb0d.jpg"
       },
       {
+        "name": "The Witcher 3: Wild Hunt",
+        "playtime_forever": 766,
+        "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/292030/7b52d11edee478d652ef4e7103e00644bed2c74c.jpg"
+      },
+      {
         "name": "CastleMiner Z",
         "playtime_forever": 654,
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/253430/a9eb03aa5178192cc241764992c4ed57cec437ca.jpg"
@@ -44,11 +49,6 @@
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1240440/ec684b943169d675439f6cdf64fa2f2aa90d9821.jpg"
       },
       {
-        "name": "The Witcher 3: Wild Hunt",
-        "playtime_forever": 350,
-        "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/292030/7b52d11edee478d652ef4e7103e00644bed2c74c.jpg"
-      },
-      {
         "name": "Unturned",
         "playtime_forever": 330,
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/304930/e18009fb628b35953826efe47dc3be556b689f4c.jpg"
@@ -62,7 +62,7 @@
     "gamerPictureUrl": "https://images-eds-ssl.xboxlive.com/image?url=wHwbXKif8cus8csoZ03RW_ES.ojiJijNBGRVUbTnZKvlHqqbdJfZWiFtiClZ7rrQjjuuYohkY47xC6xY_khj_OihSKAG0gHTcu.NaVyAbapFdweePsDhfMkHEkOM0vOtNbnwnZjOPhgkiGQRIiBi5a06VZkFM5b3DkXT1PlIN6OCqbtLSjBB2mjsaD4RP3uF&format=png",
     "recentGames": [],
     "fromCache": false,
-    "lastFetchedAt": "2026-07-01T04:19:48.316Z"
+    "lastFetchedAt": "2026-07-02T03:59:28.891Z"
   },
   "retro": {
     "user": "stormkittyflvcko",
@@ -116,5 +116,5 @@
       }
     ]
   },
-  "lastUpdated": "2026-07-01T04:19:48.668Z"
+  "lastUpdated": "2026-07-02T03:59:29.275Z"
 }
