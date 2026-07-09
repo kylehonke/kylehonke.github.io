@@ -20,7 +20,7 @@
       },
       {
         "name": "The Witcher 3: Wild Hunt",
-        "playtime_forever": 3293,
+        "playtime_forever": 3410,
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/292030/7b52d11edee478d652ef4e7103e00644bed2c74c.jpg"
       },
       {
@@ -61,8 +61,8 @@
     "gamerscore": 33229,
     "gamerPictureUrl": "https://images-eds-ssl.xboxlive.com/image?url=wHwbXKif8cus8csoZ03RW_ES.ojiJijNBGRVUbTnZKvlHqqbdJfZWiFtiClZ7rrQjjuuYohkY47xC6xY_khj_OihSKAG0gHTcu.NaVyAbapFdweePsDhfMkHEkOM0vOtNbnwnZjOPhgkiGQRIiBi5a06VZkFM5b3DkXT1PlIN6OCqbtLSjBB2mjsaD4RP3uF&format=png",
     "recentGames": [],
-    "fromCache": true,
-    "lastFetchedAt": "2026-07-08T03:19:00.797Z"
+    "fromCache": false,
+    "lastFetchedAt": "2026-07-09T03:55:13.662Z"
   },
   "retro": {
     "user": "stormkittyflvcko",
@@ -116,5 +116,5 @@
       }
     ]
   },
-  "lastUpdated": "2026-07-08T03:19:00.965Z"
+  "lastUpdated": "2026-07-09T03:55:13.908Z"
 }
