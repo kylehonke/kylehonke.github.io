@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Gamepad2, Cat, Box, Music, Pizza } from 'lucide-react';
+import { Gamepad2, Cat, Box, Music } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Extras = () => {
@@ -9,7 +9,6 @@ const Extras = () => {
         { name: 'storm', icon: Cat, path: '/extras/storm' },
         { name: 'lego', icon: Box, path: '/extras/lego' },
         { name: 'music', icon: Music, path: '/extras/music' },
-        { name: 'food', icon: Pizza, path: '/extras/food' },
     ];
 
     return (
