@@ -53,7 +53,7 @@ const Gaming = () => {
 
             <div className="glass-panel" style={{ padding: '3rem', maxWidth: '800px', marginBottom: '4rem', textAlign: 'center', boxShadow: 'none', background: 'white' }}>
                 <p style={{ fontSize: '1.1rem', color: '#718096', lineHeight: '1.8' }}>
-                    I've been playing games as long as I've been forming complete sentences. Some of my all-time favorites are Halo: 3, Halo: Reach, Zelda: Ocarina of Time, Zelda: Majoras Mask, Fallout: New Vegas, and Clair Obscur: Expedition 33. You can see some of my stats below (assuming everything's working properly) or add me for a future play sesh!
+                    I've been playing games as long as I've been forming complete sentences. Some of my all-time favorites are Halo (3 & Reach), Zelda (Ocarina of Time & Majoras Mask), Fallout: New Vegas, and Clair Obscur: Expedition 33. See below for stats, platforms & more!
                 </p>
             </div>
 
