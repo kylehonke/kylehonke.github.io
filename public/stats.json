@@ -9,8 +9,8 @@
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1903340/d48fb3ed033a08bad9bf0a2e1ceb145e58ffe0aa.jpg"
       },
       {
-        "name": "The Witcher 3: Wild Hunt",
-        "playtime_forever": 11634,
+        "name": "The Witcher 3: Wild Hunt - Complete Edition",
+        "playtime_forever": 11751,
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/292030/7b52d11edee478d652ef4e7103e00644bed2c74c.jpg"
       },
       {
@@ -54,15 +54,15 @@
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/304930/e18009fb628b35953826efe47dc3be556b689f4c.jpg"
       }
     ],
-    "lastPlayed": "The Witcher 3: Wild Hunt"
+    "lastPlayed": "The Witcher 3: Wild Hunt - Complete Edition"
   },
   "xbox": {
     "gamertag": "grooovyKyle",
     "gamerscore": 33379,
     "gamerPictureUrl": "https://images-eds-ssl.xboxlive.com/image?url=wHwbXKif8cus8csoZ03RW_ES.ojiJijNBGRVUbTnZKvlHqqbdJfZWiFtiClZ7rrQjjuuYohkY47xC6xY_khj_OihSKAG0gHTcu.NaVyAbapFdweePsDhfMkHEkOM0vOtNbnwnZjOPhgkiGQRIiBi5a06VZkFM5b3DkXT1PlIN6OCqbtLSjBB2mjsaD4RP3uF&format=png",
     "recentGames": [],
-    "fromCache": true,
-    "lastFetchedAt": "2026-08-25T01:34:05.725Z"
+    "fromCache": false,
+    "lastFetchedAt": "2026-08-26T01:38:25.643Z"
   },
   "retro": {
     "user": "stormkittyflvcko",
@@ -116,5 +116,5 @@
       }
     ]
   },
-  "lastUpdated": "2026-08-25T01:34:06.182Z"
+  "lastUpdated": "2026-08-26T01:38:25.949Z"
 }
