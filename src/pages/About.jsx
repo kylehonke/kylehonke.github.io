@@ -16,11 +16,11 @@ const About = () => {
                 <div className="glass-panel" style={{ padding: '3rem', marginBottom: '4rem', background: 'rgba(255,255,255,0.7)' }}>
                     <div style={{ fontSize: '1.1rem', color: '#4a5568', lineHeight: '1.9', textAlign: 'center' }}>
                         <p style={{ marginBottom: '2rem' }}>
-                            Hi! I'm Kyle, a software developer and Software Development BAS student at ACC, graduating in December 2026. I'm currently a Software Developer at Clozure, where I'm gaining hands-on experience developing software as part of an exceptional engineering team.
+                            Hi! I'm Kyle, an Austin native Software Development BAS student at ACC, graduating in December 2026. I'm currently a Software Engineer at Clozure, where I'm gaining hands-on experience working as part of an exceptional engineering team.
                         </p>
 
                         <p style={{ marginBottom: '2rem' }}>
-                            My interests extend across software engineering, machine learning, and data science. I've worked with machine learning and AI systems from the data and modeling side as well as the software side, and I enjoy the challenge of taking an idea from an algorithm or prototype and turning it into something that can actually be used.
+                            My interests span software engineering, machine learning, and data science. I've worked with ML and AI systems from the data and modeling side as well as the software side, and I enjoy the challenge of taking an idea from an algorithm or prototype into something people actually use.
                         </p>
 
                         <p style={{ marginBottom: '2rem' }}>
