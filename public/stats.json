@@ -61,8 +61,8 @@
     "gamerscore": 33539,
     "gamerPictureUrl": "https://images-eds-ssl.xboxlive.com/image?url=wHwbXKif8cus8csoZ03RW_ES.ojiJijNBGRVUbTnZKvlHqqbdJfZWiFtiClZ7rrQjjuuYohkY47xC6xY_khj_OihSKAG0gHTcu.NaVyAbapFdweePsDhfMkHEkOM0vOtNbnwnZjOPhgkiGQRIiBi5a06VZkFM5b3DkXT1PlIN6OCqbtLSjBB2mjsaD4RP3uF&format=png",
     "recentGames": [],
-    "fromCache": false,
-    "lastFetchedAt": "2026-09-22T04:11:17.525Z"
+    "fromCache": true,
+    "lastFetchedAt": "2026-09-23T04:08:07.869Z"
   },
   "retro": {
     "user": "stormkittyflvcko",
@@ -116,5 +116,5 @@
       }
     ]
   },
-  "lastUpdated": "2026-09-22T04:11:17.882Z"
+  "lastUpdated": "2026-09-23T04:08:08.155Z"
 }
