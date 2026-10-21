@@ -5,7 +5,7 @@
     "games": [
       {
         "name": "The Witcher 3: Wild Hunt — Remastered",
-        "playtime_forever": 19666,
+        "playtime_forever": 19668,
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/292030/7b52d11edee478d652ef4e7103e00644bed2c74c.jpg"
       },
       {
@@ -15,7 +15,7 @@
       },
       {
         "name": "ARC Raiders",
-        "playtime_forever": 10278,
+        "playtime_forever": 10319,
         "icon": "https://media.steampowered.com/steamcommunity/public/images/apps/1808500/c284e73b6f3321864805d66f99924a0da9f0b219.jpg"
       },
       {
@@ -62,7 +62,7 @@
     "gamerPictureUrl": "https://images-eds-ssl.xboxlive.com/image?url=wHwbXKif8cus8csoZ03RW_ES.ojiJijNBGRVUbTnZKvlHqqbdJfZWiFtiClZ7rrQjjuuYohkY47xC6xY_khj_OihSKAG0gHTcu.NaVyAbapFdweePsDhfMkHEkOM0vOtNbnwnZjOPhgkiGQRIiBi5a06VZkFM5b3DkXT1PlIN6OCqbtLSjBB2mjsaD4RP3uF&format=png",
     "recentGames": [],
     "fromCache": true,
-    "lastFetchedAt": "2026-10-20T04:14:52.046Z"
+    "lastFetchedAt": "2026-10-21T04:02:40.959Z"
   },
   "retro": {
     "user": "stormkittyflvcko",
@@ -116,5 +116,5 @@
       }
     ]
   },
-  "lastUpdated": "2026-10-20T04:14:52.423Z"
+  "lastUpdated": "2026-10-21T04:02:41.358Z"
 }
