@@ -1,54 +1,34 @@
-import React from 'react';
-import { Youtube } from 'lucide-react';
+import PageIntro from '../../components/PageIntro';
+import YouTubeLink from '../../components/YouTubeLink';
 
-const Music = () => {
-    return (
-        <div className="page-container flex-center">
-            <h2 className="section-title">music</h2>
+const videos = [
+    { id: 'lpXh8Mjml1g', title: 'Princess Azula' },
+    { id: 'XNjIxAyuzrI', title: 'smile' },
+];
 
-            <div className="glass-panel" style={{ padding: '3rem', marginBottom: '3rem', maxWidth: '700px', textAlign: 'center', background: 'white', boxShadow: 'none' }}>
-                <p style={{ fontSize: '1.1rem', marginBottom: '2rem', color: '#718096', lineHeight: '1.8' }}>
-                    My hyper fixation during covid lockdowns was music production... you can be the judge of how that turned out
-                </p>
+const Music = () => (
+    <div className="page-container flex-center">
+        <PageIntro title="music">
+            <p className="intro-with-action">
+                My hyper fixation during covid lockdowns was music production... you can be the judge of how that turned out
+            </p>
+            <YouTubeLink href="https://www.youtube.com/@groovyKyle">visit groovykyle</YouTubeLink>
+        </PageIntro>
 
-                <a
-                    href="https://www.youtube.com/@groovyKyle"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary"
-                    style={{ display: 'inline-flex', alignItems: 'center', gap: '0.8rem', background: '#e53e3e', color: 'white', padding: '0.8rem 2rem', borderRadius: '50px', fontSize: '0.9rem' }}
-                >
-                    <Youtube size={20} />
-                    visit groovykyle
-                </a>
-            </div>
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', width: '100%', maxWidth: '1000px' }}>
-                <div style={{ aspectRatio: '16/9', overflow: 'hidden', borderRadius: '12px', background: 'black' }}>
+        <div className="video-grid">
+            {videos.map(video => (
+                <div key={video.id} className="video-embed">
                     <iframe
-                        width="100%"
-                        height="100%"
-                        src="https://www.youtube.com/embed/lpXh8Mjml1g"
-                        title="YouTube video player 1"
-                        frameBorder="0"
+                        src={`https://www.youtube-nocookie.com/embed/${video.id}`}
+                        title={`${video.title} (YouTube video)`}
+                        loading="lazy"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                     ></iframe>
                 </div>
-                <div style={{ aspectRatio: '16/9', overflow: 'hidden', borderRadius: '12px', background: 'black' }}>
-                    <iframe
-                        width="100%"
-                        height="100%"
-                        src="https://www.youtube.com/embed/XNjIxAyuzrI"
-                        title="YouTube video player 2"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                    ></iframe>
-                </div>
-            </div>
+            ))}
         </div>
-    );
-};
+    </div>
+);
 
 export default Music;

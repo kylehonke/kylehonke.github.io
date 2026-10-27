@@ -1,15 +1,29 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Extras from './pages/Extras';
+import NotFound from './pages/NotFound';
 import Gaming from './pages/extras/Gaming';
 import Storm from './pages/extras/Storm';
 import Lego from './pages/extras/Lego';
 import Music from './pages/extras/Music';
 import Food from './pages/extras/Food';
+import { routes } from './routes';
+
+const pages = {
+    '/': Home,
+    '/about': About,
+    '/projects': Projects,
+    '/extras': Extras,
+    '/extras/gaming': Gaming,
+    '/extras/storm': Storm,
+    '/extras/lego': Lego,
+    '/extras/music': Music,
+    '/extras/food': Food,
+};
 
 const ScrollToTop = () => {
     const { pathname } = useLocation();
@@ -19,25 +33,21 @@ const ScrollToTop = () => {
     return null;
 };
 
-const App = () => {
-    return (
-        <BrowserRouter>
-            <ScrollToTop />
-            <Routes>
-                <Route path="/" element={<Layout />}>
-                    <Route index element={<Home />} />
-                    <Route path="about" element={<About />} />
-                    <Route path="projects" element={<Projects />} />
-                    <Route path="extras" element={<Extras />} />
-                    <Route path="extras/gaming" element={<Gaming />} />
-                    <Route path="extras/storm" element={<Storm />} />
-                    <Route path="extras/lego" element={<Lego />} />
-                    <Route path="extras/music" element={<Music />} />
-                    <Route path="extras/food" element={<Food />} />
-                </Route>
-            </Routes>
-        </BrowserRouter>
-    );
-};
+const App = () => (
+    <BrowserRouter>
+        <ScrollToTop />
+        <Routes>
+            <Route path="/" element={<Layout />}>
+                {routes.map(({ path }) => {
+                    const Page = pages[path];
+                    return path === '/'
+                        ? <Route key={path} index element={<Page />} />
+                        : <Route key={path} path={path.slice(1)} element={<Page />} />;
+                })}
+                <Route path="*" element={<NotFound />} />
+            </Route>
+        </Routes>
+    </BrowserRouter>
+);
 
 export default App;

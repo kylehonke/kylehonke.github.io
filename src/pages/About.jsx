@@ -1,47 +1,35 @@
-import React from 'react';
 import SocialIcons from '../components/SocialIcons';
-import { motion } from 'framer-motion';
 
-const About = () => {
-    return (
-        <div className="page-container flex-center" style={{ minHeight: '80vh' }}>
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8 }}
-                className="w-full max-w-3xl text-center"
-            >
-                <h2 className="section-title">about me</h2>
+const About = () => (
+    <div className="page-container flex-center about-page">
+        <div className="fade-in">
+            <h1 className="section-title">about me</h1>
 
-                <div className="glass-panel" style={{ padding: '3rem', marginBottom: '4rem', background: 'rgba(255,255,255,0.7)' }}>
-                    <div style={{ fontSize: '1.1rem', color: '#4a5568', lineHeight: '1.9', textAlign: 'center' }}>
-                        <p style={{ marginBottom: '2rem' }}>
-                            Hi! I'm Kyle, an Austin native Software Development BAS student at ACC, graduating in December 2026. I'm currently a Software Engineer at Clozure, where I'm gaining hands-on experience working as part of an exceptional engineering team.
-                        </p>
+            <div className="glass-panel about-panel">
+                <div className="about-body">
+                    <p>
+                        Hi! I&apos;m Kyle, an Austin native Software Development BAS student at ACC, graduating in December 2026. I&apos;m currently a Software Engineer at Clozure, where I&apos;m gaining hands-on experience working as part of an exceptional engineering team.
+                    </p>
 
-                        <p style={{ marginBottom: '2rem' }}>
-                            My interests span software engineering, machine learning, and data science. I've worked with ML and AI systems from the data and modeling side as well as the software side, and I enjoy the challenge of taking an idea from an algorithm or prototype into something people actually use.
-                        </p>
+                    <p>
+                        My interests span software engineering, machine learning, and data science. I&apos;ve worked with ML and AI systems from the data and modeling side as well as the software side, and I enjoy the challenge of taking an idea from an algorithm or prototype into something people actually use.
+                    </p>
 
-                        <p style={{ marginBottom: '2rem' }}>
-                            I tend to gravitate toward difficult problems and projects where there's something new to figure out. Whether I'm learning a new technology, working through an unfamiliar codebase, or building something from scratch, I care about understanding how things work rather than simply getting them to work once.
-                        </p>
-                    </div>
-
-                    <div style={{ width: '40px', height: '2px', background: '#cbd5e0', margin: '0 auto 2rem' }}></div>
-
-                    <p style={{ fontSize: '1.1rem', color: '#718096', fontWeight: '400', textAlign: 'center' }}>
-                        I'm always open to new connections, collaborations, projects and ideas, so please don't hesitate to reach out!
+                    <p>
+                        I tend to gravitate toward difficult problems and projects where there&apos;s something new to figure out. Whether I&apos;m learning a new technology, working through an unfamiliar codebase, or building something from scratch, I care about understanding how things work rather than simply getting them to work once.
                     </p>
                 </div>
 
-                <div>
-                    {/*text removed for now, Icons increased size. Note - Icons currently cut off on mobile devices */}
-                    <SocialIcons includeAll={true} size={32} />
-                </div>
-            </motion.div>
+                <div className="about-divider" aria-hidden="true"></div>
+
+                <p className="about-outro">
+                    I&apos;m always open to new connections, collaborations, projects and ideas, so please don&apos;t hesitate to reach out!
+                </p>
+            </div>
+
+            <SocialIcons includeAll size={32} />
         </div>
-    );
-};
+    </div>
+);
 
 export default About;

@@ -1,55 +1,28 @@
-import React from 'react';
+import PageIntro from '../../components/PageIntro';
 
-const Storm = () => {
-    // Generate array [1, ... 18]
-    const images = Array.from({ length: 18 }, (_, i) => i + 1);
+// Files live in public/assets/storm/. List exact names (extension case matters on GitHub Pages).
+const photos = [
+    'storm-1.jpg', 'storm-2.jpg', 'storm-3.jpg', 'storm-4.JPG', 'storm-5.JPG', 'storm-6.JPG',
+    'storm-7.JPG', 'storm-8.jpg', 'storm-9.JPG', 'storm-10.jpg', 'storm-11.JPG', 'storm-12.jpg',
+    'storm-13.JPG', 'storm-14.jpg', 'storm-15.jpg', 'storm-16.JPG', 'storm-17.jpg', 'storm-18.jpg',
+];
 
-    return (
-        <div className="page-container flex-center">
-            <h2 className="section-title">storm</h2>
+const Storm = () => (
+    <div className="page-container flex-center">
+        <PageIntro title="storm">
+            <p>
+                Storm Kitty Flacko Jodye (or just &apos;Storm&apos; for short) is my fluffy grey best friend. He was born in March 2020, making him a covid kitty with no respect for personal space. This space is just for him
+            </p>
+        </PageIntro>
 
-            <div className="glass-panel" style={{ padding: '3rem', maxWidth: '700px', marginBottom: '3rem', textAlign: 'center', boxShadow: 'none', background: 'white' }}>
-                <p style={{ fontSize: '1.1rem', color: '#718096', lineHeight: '1.8' }}>
-                    Storm Kitty Flacko Jodye (or just 'Storm' for short) is my fluffy grey best friend. He was born in March 2020, making him a covid kitty with no respect for personal space. This space is just for him
-                </p>
-            </div>
-
-            <div className="storm-gallery" style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
-                gap: '1.5rem',
-                width: '100%',
-                maxWidth: '1200px'
-            }}>
-                {images.map((i) => (
-                    <div key={i} className="gallery-item" style={{ borderRadius: '12px', overflow: 'hidden', height: '300px', background: '#f7fafc', position: 'relative' }}>
-                        {/* 
-                           Place images in public/assets/storm/ named storm-1.jpg storm-2.jpg etc.
-                           Extensions can vary, but hardcoding .jpg for simplicity. 
-                           If png, might need to update this or I can create a script to detect.
-                           For now, jpg is easiest.
-                        */}
-                        <img
-                            src={`/assets/storm/storm-${i}.jpg`}
-                            alt={`Storm ${i}`}
-                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                            onError={(e) => {
-                                const src = e.target.src;
-                                if (src.endsWith('.jpg')) {
-                                    // Try uppercase .JPG next
-                                    e.target.src = `/assets/storm/storm-${i}.JPG`;
-                                } else {
-                                    // Both failed, use placeholder
-                                    e.target.onerror = null;
-                                    e.target.src = `https://placehold.co/400x400?text=storm-${i}`;
-                                }
-                            }}
-                        />
-                    </div>
-                ))}
-            </div>
+        <div className="storm-gallery">
+            {photos.map((file, i) => (
+                <div key={file} className="gallery-item">
+                    <img src={`/assets/storm/${file}`} alt={`Storm the cat, photo ${i + 1}`} loading="lazy" decoding="async" />
+                </div>
+            ))}
         </div>
-    );
-};
+    </div>
+);
 
 export default Storm;
