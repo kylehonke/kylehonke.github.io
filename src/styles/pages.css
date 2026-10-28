@@ -1,6 +1,11 @@
 /* ===== Home ===== */
+/* dvh keeps mobile browser chrome from pushing the footer below the fold */
+.app-container:has(.home-container) {
+    min-height: 100dvh;
+}
+
 .home-container {
-    min-height: calc(100vh - 100px);
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -629,5 +634,17 @@
 
     .home-title {
         font-size: 2.5rem;
+    }
+}
+
+/* Landscape phones: compact the home page so it still fits one screen */
+@media (max-height: 500px) {
+    .home-title {
+        font-size: 2.5rem;
+        margin-top: 0;
+    }
+
+    .app-container:has(.home-container) .site-footer {
+        padding: 1rem 0;
     }
 }
