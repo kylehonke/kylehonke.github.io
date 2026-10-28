@@ -19,7 +19,7 @@ const MouseTrail = () => {
 
     useEffect(() => {
         const canvas = canvasRef.current;
-        if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (!canvas) return;
 
         const ctx = canvas.getContext('2d');
         let particles = [];
