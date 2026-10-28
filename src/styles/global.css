@@ -143,13 +143,3 @@ button {
 .fade-in {
   animation: fade-in var(--fade-duration, 0.8s) ease-in-out var(--fade-delay, 0s) both;
 }
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-delay: 0s !important;
-    transition-duration: 0.01ms !important;
-  }
-}
