@@ -1,23 +1,27 @@
-import React from 'react';
-import { Outlet, Link, useLocation } from 'react-router-dom';
-import '../styles/layout.css';
+import { useEffect } from 'react';
+import { Outlet, Link, NavLink, useLocation } from 'react-router';
+import { findRoute, pageTitle } from '../routes';
+
+const navLinks = [
+    { name: 'About', path: '/about' },
+    { name: 'Projects', path: '/projects' },
+    { name: 'Resume', path: '/resume.pdf', external: true },
+    { name: 'Extras', path: '/extras' },
+];
 
 const Layout = () => {
-    const location = useLocation();
-    const isHome = location.pathname === '/';
+    const { pathname } = useLocation();
+    const isHome = pathname === '/';
 
-    const navLinks = [
-        { name: 'About', path: '/about' },
-        { name: 'Projects', path: '/projects' },
-        { name: 'Resume', path: '/resume.pdf', external: true },
-        { name: 'Extras', path: '/extras' },
-    ];
+    useEffect(() => {
+        document.title = pageTitle(findRoute(pathname));
+    }, [pathname]);
 
     return (
         <div className="app-container">
+            <a href="#main-content" className="skip-link">Skip to content</a>
 
-
-            <nav className="top-nav">
+            <nav className="top-nav" aria-label="Main">
                 {!isHome && (
                     <Link to="/" className="nav-home-link">Home</Link>
                 )}
@@ -25,34 +29,24 @@ const Layout = () => {
                 <div className="nav-links">
                     {navLinks.map(link => (
                         link.external ? (
-                            <a
-                                key={link.name}
-                                href={link.path}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="nav-link"
-                            >
+                            <a key={link.name} href={link.path} target="_blank" rel="noopener noreferrer" className="nav-link">
                                 {link.name}
                             </a>
                         ) : (
-                            <Link
-                                key={link.name}
-                                to={link.path}
-                                className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
-                            >
+                            <NavLink key={link.name} to={link.path} end className="nav-link">
                                 {link.name}
-                            </Link>
+                            </NavLink>
                         )
                     ))}
                 </div>
             </nav>
 
-            <main className="main-content">
+            <main id="main-content" className="main-content" tabIndex={-1}>
                 <Outlet />
             </main>
 
             <footer className="site-footer">
-                <p>© 2026 Kyle Honke. All rights reserved.</p>
+                <p>© {new Date().getFullYear()} Kyle Honke. All rights reserved.</p>
             </footer>
         </div>
     );

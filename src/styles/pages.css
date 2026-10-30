@@ -1,25 +1,11 @@
-/* Layout Override */
-.app-container {
-    background: transparent;
+/* ===== Home ===== */
+/* dvh keeps mobile browser chrome from pushing the footer below the fold */
+.app-container:has(.home-container) {
+    min-height: 100dvh;
 }
 
-.top-nav {
-    background: transparent;
-    backdrop-filter: none;
-}
-
-.site-footer {
-    background: transparent;
-    color: var(--text-light);
-    border-top: none;
-    font-size: 0.8rem;
-    padding: 3rem 0;
-}
-
-/* Home Page */
 .home-container {
-    min-height: calc(100vh - 100px);
-    /* Account for footer/nav */
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,6 +20,8 @@
     margin-bottom: 1rem;
     color: var(--text-color);
     letter-spacing: -2px;
+    --fade-y: 20px;
+    --fade-duration: 1s;
 }
 
 .home-subtitle {
@@ -41,72 +29,470 @@
     margin-bottom: 2rem;
 }
 
-/* About Page */
-.about-content {
+.home-subtitle p {
+    color: var(--text-light);
+    letter-spacing: 1px;
+    text-transform: lowercase;
+    --fade-y: 10px;
+    --fade-delay: 0.5s;
+}
+
+.home-socials {
+    --fade-delay: 1s;
+}
+
+/* ===== About ===== */
+.about-page {
+    min-height: 80vh;
+}
+
+.about-panel {
     padding: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    max-width: 800px;
-    margin: 0 auto 3rem;
-    background: white;
-    border-radius: 4px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+    margin-bottom: 4rem;
+    background: rgba(255, 255, 255, 0.7);
 }
 
-.divider-line {
-    width: 60px;
+.about-body {
+    font-size: 1.1rem;
+    color: var(--gray-700);
+    line-height: 1.9;
+    text-align: center;
+}
+
+.about-body p {
+    margin-bottom: 2rem;
+}
+
+.about-divider {
+    width: 40px;
     height: 2px;
-    background: var(--pastel-blue);
-    margin: 1rem 0;
+    background: var(--gray-400);
+    margin: 0 auto 2rem;
 }
 
-/* Projects Page */
+.about-outro {
+    font-size: 1.1rem;
+    color: var(--gray-600);
+    font-weight: 400;
+    text-align: center;
+}
+
+/* ===== Projects ===== */
 .projects-list {
     display: flex;
     flex-direction: column;
     gap: 6rem;
-    /* More breathing room */
-    margin-bottom: 6rem;
+    margin: 0 0 6rem;
+    padding: 0;
 }
 
-.project-item {
-    display: flex;
-    align-items: center;
-    gap: 4rem;
+/* Alternate cards left/right, each taking half the row minus half the 4rem gutter */
+.projects-list > li {
+    width: calc(50% - 2rem);
+    align-self: flex-start;
 }
 
-.project-item.reverse {
-    flex-direction: row-reverse;
-}
-
-.project-card-wrapper {
-    flex: 1;
-}
-
-.project-spacer {
-    flex: 1;
+.projects-list > li:nth-child(even) {
+    align-self: flex-end;
 }
 
 .fun-projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 3rem;
+    margin: 0;
+    padding: 0;
 }
 
-/* Minimalist Extras */
+/* ===== Extras ===== */
+.extras-page {
+    min-height: 60vh;
+}
+
 .extras-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    max-width: 600px;
     margin: 0 auto;
 }
 
-/* Galleries */
+/* The slide's linear() curve samples a spring (stiffness 500, damping 25) for a slight overshoot. */
+@keyframes extras-fade {
+    from {
+        opacity: 0;
+    }
+}
+
+@keyframes extras-slide {
+    from {
+        transform: translateX(-20px);
+    }
+}
+
+.extras-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--gray-300);
+    transition: padding 0.3s ease, background-color 0.3s ease;
+    animation:
+        extras-fade 0.3s cubic-bezier(0.25, 0.1, 0.35, 1) var(--fade-delay, 0s) both,
+        extras-slide 0.42s linear(0, 0.092, 0.299, 0.539, 0.759, 0.93, 1.043, 1.102, 1.12, 1.111, 1.086, 1.057, 1.031, 1.01, 0.996, 0.988, 0.986, 0.987, 0.989, 0.993, 1) var(--fade-delay, 0s) both;
+}
+
+.extras-item:hover,
+.extras-item:focus-visible {
+    padding-left: 2.5rem;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.extras-item svg {
+    color: var(--gray-600);
+}
+
+.extras-item h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 0;
+    color: var(--gray-700);
+}
+
+/* ===== Gaming ===== */
+.intro-panel--gaming {
+    max-width: 800px;
+    margin-bottom: 4rem;
+}
+
+.gaming-stats {
+    width: 100%;
+    margin-bottom: 5rem;
+    max-width: 1000px;
+}
+
+.gaming-status {
+    padding: 5rem;
+    color: var(--gray-500);
+}
+
+.now-playing {
+    text-align: center;
+    margin-bottom: 4rem;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 2rem;
+    border-radius: 16px;
+}
+
+.now-playing h2 {
+    font-size: 1rem;
+    color: var(--gray-500);
+    margin: 1em 0 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.now-playing p {
+    font-size: 2rem;
+    color: var(--gray-700);
+    font-weight: bold;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.stat-card {
+    text-align: left;
+    background: white;
+    padding: 2rem;
+    border: 1px solid var(--gray-300);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.stat-card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    align-items: center;
+}
+
+.stat-card-header h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin: 1em 0;
+}
+
+.stat-link,
+.stat-link:hover,
+.stat-link:focus-visible {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--pastel-seafoam);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.stat-tag {
+    color: var(--gray-500);
+    font-size: 0.9rem;
+    font-weight: 500;
+    background: var(--gray-100);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--gray-500);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-figure p {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--gray-700);
+    line-height: 1;
+}
+
+.stat-figure span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--gray-500);
+}
+
+.stat-figures {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: var(--gray-500);
+}
+
+.stat-list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.stat-list > li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stat-list > li:not(:last-child) {
+    border-bottom: 1px solid var(--slate-100);
+}
+
+.stat-list img {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    opacity: 0.9;
+}
+
+.steam-games {
+    gap: 1.5rem;
+}
+
+.steam-games > li {
+    padding-bottom: 1rem;
+}
+
+.steam-games .game-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--gray-700);
+}
+
+.steam-games .stat-meta {
+    font-size: 0.9rem;
+}
+
+.xbox-picture {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.xbox-picture > * {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    border: 2px solid var(--gray-200);
+}
+
+.xbox-picture img {
+    object-fit: cover;
+}
+
+.xbox-picture-placeholder {
+    background: var(--slate-50);
+}
+
+.xbox-gamerscore {
+    margin-bottom: 2rem;
+}
+
+.xbox-games {
+    padding-left: 0;
+    font-size: 1rem;
+    color: var(--gray-600);
+}
+
+.xbox-game {
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.xbox-games .bullet {
+    width: 6px;
+    height: 6px;
+    background-color: var(--pastel-seafoam);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.xbox-games .game-name {
+    flex: 1;
+}
+
+.xbox-games .stat-meta {
+    display: inline-flex;
+    gap: 4px;
+}
+
+.stat-empty {
+    color: var(--gray-500);
+    font-size: 0.9rem;
+}
+
+.retro-last-game {
+    margin-bottom: 1.5rem;
+    padding: 0.75rem;
+    background: var(--slate-50);
+    border-radius: 8px;
+    border: 1px solid var(--gray-200);
+}
+
+.retro-last-game .stat-label {
+    margin-bottom: 0.3rem;
+}
+
+.retro-last-game .game-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--gray-800);
+}
+
+.retro-last-game .console-name {
+    font-size: 0.85rem;
+    color: var(--gray-600);
+}
+
+.retro-unlocks {
+    gap: 1rem;
+}
+
+.retro-unlocks > li:not(:last-child) {
+    padding-bottom: 1rem;
+}
+
+.retro-unlocks .unlock-body {
+    flex: 1;
+}
+
+.retro-unlocks .unlock-title {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--gray-700);
+    margin-bottom: 0.1rem;
+}
+
+.retro-unlocks .unlock-game {
+    font-size: 0.85rem;
+    color: var(--gray-600);
+    margin-bottom: 0.1rem;
+}
+
+.hardcore-badge {
+    font-size: 0.7rem;
+    color: var(--pastel-seafoam);
+    font-weight: 700;
+    border: 1px solid var(--pastel-seafoam);
+    border-radius: 4px;
+    padding: 0 4px;
+}
+
+.unlock-date {
+    margin-left: auto;
+}
+
+.gaming-media-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 1em 0 2rem;
+    color: var(--gray-700);
+}
+
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.media-grid--clips {
+    margin-bottom: 4rem;
+}
+
+.media-tile--clip {
+    background: black;
+    border: 1px solid var(--gray-300);
+}
+
+.media-tile--clip .media-fallback {
+    color: white;
+    opacity: 0.5;
+}
+
+.media-tile--screenshot {
+    background: var(--gray-300);
+}
+
+/* ===== Storm ===== */
 .storm-gallery {
-    column-count: 3;
-    column-gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .gallery-item {
+    border-radius: 12px;
+    overflow: hidden;
+    height: 300px;
+    background: var(--gray-100);
+    position: relative;
     margin-bottom: 1.5rem;
     transition: opacity 0.3s ease;
 }
@@ -115,17 +501,150 @@
     opacity: 0.9;
 }
 
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===== Lego & Music ===== */
+.intro-panel p.intro-with-action {
+    margin-bottom: 2rem;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.video-embed {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 12px;
+    background: black;
+}
+
+.video-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* ===== Food ===== */
+.intro-panel--food {
+    margin: 0 auto 4rem;
+}
+
+.restaurant-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto 6rem;
+    padding: 0;
+}
+
+.restaurant-card {
+    background: white;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+    flex: 1 1 300px;
+    max-width: 400px;
+}
+
+.restaurant-card h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 1em 0 0.5rem;
+    color: var(--gray-800);
+}
+
+.restaurant-card p {
+    color: var(--gray-600);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.restaurant-link,
+.restaurant-link:hover,
+.restaurant-link:focus-visible {
+    color: var(--pastel-seafoam);
+    font-weight: bold;
+    font-size: 0.9rem;
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease, text-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.restaurant-link:hover,
+.restaurant-link:focus-visible {
+    border-bottom-color: var(--pastel-seafoam);
+}
+
+.food-gallery-title {
+    font-size: 1.5rem;
+    margin: 1em 0 3rem;
+}
+
+.food-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.media-tile--food {
+    height: 300px;
+    flex-direction: row;
+    color: var(--gray-400);
+    background: var(--gray-300);
+}
+
+.media-tile--food:has(.media-fallback) {
+    background: white;
+}
+
+/* ===== Not found ===== */
+.not-found {
+    min-height: 60vh;
+    text-align: center;
+    color: var(--text-light);
+}
+
+/* ===== Responsive ===== */
 @media (max-width: 768px) {
-    .project-item {
-        flex-direction: column !important;
-        gap: 2rem;
+    .projects-list {
+        gap: 8rem;
+        margin-bottom: 8rem;
     }
 
-    .storm-gallery {
-        column-count: 1;
+    .projects-list > li {
+        width: 100%;
     }
 
     .home-title {
         font-size: 2.5rem;
+    }
+}
+
+/* Landscape phones: compact the home page so it still fits one screen */
+@media (max-height: 500px) {
+    .home-title {
+        font-size: 2.5rem;
+        margin-top: 0;
+    }
+
+    .app-container:has(.home-container) .site-footer {
+        padding: 1rem 0;
     }
 }

@@ -1,244 +1,190 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Clock, ExternalLink } from 'lucide-react';
+import PageIntro from '../../components/PageIntro';
+import MediaTile from '../../components/MediaTile';
+
+const MEDIA = [1, 2, 3];
+
+const formatDate = (value) => new Date(value).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+const StatCard = ({ title, action, children }) => (
+    <section className="stat-card glass-panel" aria-label={title}>
+        <div className="stat-card-header">
+            <h2>{title}</h2>
+            {action}
+        </div>
+        {children}
+    </section>
+);
+
+const ProfileLink = ({ href }) => (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="stat-link">
+        view profile <ExternalLink size={16} aria-hidden="true" />
+    </a>
+);
+
+const hideOnError = (e) => {
+    e.currentTarget.style.display = 'none';
+};
+
+const SteamCard = ({ steam }) => (
+    <StatCard title="steam" action={<ProfileLink href={steam?.profileUrl} />}>
+        <ul className="stat-list steam-games">
+            {steam?.games?.slice(0, 3).map(game => (
+                <li key={game.name}>
+                    {game.icon && <img src={game.icon} alt={game.name} width="48" height="48" />}
+                    <div>
+                        <p className="game-name">{game.name}</p>
+                        <p className="stat-meta"><Clock size={14} aria-hidden="true" /> {Math.round(game.playtime_forever / 60)}h</p>
+                    </div>
+                </li>
+            ))}
+        </ul>
+    </StatCard>
+);
+
+const XboxCard = ({ xbox }) => {
+    const gamerscore = typeof xbox?.gamerscore === 'number' ? xbox.gamerscore.toLocaleString('en-US') : '---';
+    const recentGames = xbox?.recentGames?.slice(0, 5) ?? [];
+
+    return (
+        <StatCard title="xbox" action={<span className="stat-tag">@{xbox?.gamertag || 'unknown'}</span>}>
+            <div className="xbox-picture">
+                {xbox?.gamerPictureUrl ? (
+                    <img src={xbox.gamerPictureUrl} alt={`${xbox.gamertag || 'xbox'} gamer picture`} width="88" height="88" onError={hideOnError} />
+                ) : (
+                    <div className="xbox-picture-placeholder" />
+                )}
+            </div>
+
+            <div className="stat-figure xbox-gamerscore">
+                <p>{gamerscore}</p>
+                <span>Gamerscore</span>
+            </div>
+
+            <p className="stat-label">Recent</p>
+            <ul className="xbox-games">
+                {recentGames.map(game => (
+                    <li key={game.titleId ?? game.title} className="xbox-game">
+                        <span className="bullet" aria-hidden="true"></span>
+                        <span className="game-name">{game.title}</span>
+                        <span className="stat-meta"><Clock size={12} aria-hidden="true" /> {game.playtimeHours}</span>
+                    </li>
+                ))}
+                {recentGames.length === 0 && <li className="stat-empty">no recent titles</li>}
+            </ul>
+        </StatCard>
+    );
+};
+
+const RetroCard = ({ retro }) => {
+    const achievements = retro?.recentAchievements?.slice(0, 3) ?? [];
+
+    return (
+        <StatCard title="retro" action={<ProfileLink href={`https://retroachievements.org/user/${retro?.user}`} />}>
+            <div className="stat-figures">
+                <div className="stat-figure">
+                    <p>{retro?.hardcorePoints ?? '---'}</p>
+                    <span>hardcore points</span>
+                </div>
+                <div className="stat-figure">
+                    <p>{retro?.softcorePoints ?? '---'}</p>
+                    <span>softcore points</span>
+                </div>
+            </div>
+
+            {retro?.lastGame && (
+                <div className="retro-last-game">
+                    <p className="stat-label">last played</p>
+                    <p className="game-name">{retro.lastGame.title}</p>
+                    <p className="console-name">{retro.lastGame.consoleName}</p>
+                </div>
+            )}
+
+            <p className="stat-label">recent unlocks</p>
+            {achievements.length > 0 ? (
+                <ul className="stat-list retro-unlocks">
+                    {achievements.map(achievement => (
+                        <li key={`${achievement.game}-${achievement.title}`}>
+                            <img src={achievement.badgeUrl} alt={achievement.title} width="48" height="48" onError={hideOnError} />
+                            <div className="unlock-body">
+                                <p className="unlock-title">{achievement.title}</p>
+                                <p className="unlock-game">{achievement.game}</p>
+                                <p className="stat-meta">
+                                    {achievement.points} pts
+                                    {achievement.hardcore && <span className="hardcore-badge" title="hardcore">HC</span>}
+                                    <span className="unlock-date">{formatDate(achievement.dateAwarded)}</span>
+                                </p>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p className="stat-empty">no recent achievements</p>
+            )}
+        </StatCard>
+    );
+};
 
 const Gaming = () => {
     const [stats, setStats] = useState(null);
+    const [failed, setFailed] = useState(false);
 
     useEffect(() => {
-        fetch(`/stats.json?v=${Date.now()}`)
-            .then(res => res.json())
-            .then(data => setStats(data))
-            .catch(err => console.error('Failed to load gaming stats:', err));
+        const controller = new AbortController();
+        // no-cache revalidates with the server (cheap 304s) instead of always re-downloading.
+        fetch('/stats.json', { cache: 'no-cache', signal: controller.signal })
+            .then(res => {
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                return res.json();
+            })
+            .then(setStats)
+            .catch(err => {
+                if (err.name === 'AbortError') return;
+                console.error('Failed to load gaming stats:', err);
+                setFailed(true);
+            });
+        return () => controller.abort();
     }, []);
-
-    const xboxData = stats?.xbox || null;
-    const xboxGamerscore = (() => {
-        if (!xboxData) {
-            return '---';
-        }
-
-        if (typeof xboxData.gamerscore === 'number') {
-            return xboxData.gamerscore.toLocaleString('en-US');
-        }
-
-        if (typeof xboxData.gamerscore === 'string' && xboxData.gamerscore.trim().length > 0) {
-            return xboxData.gamerscore;
-        }
-
-        return '---';
-    })();
-
-    const xboxRecentGames = Array.isArray(xboxData?.recentGames)
-        ? xboxData.recentGames.slice(0, 5).map(game => {
-            if (typeof game === 'string') {
-                return {
-                    title: game,
-                    playtimeHours: '0h'
-                };
-            }
-
-            const title = game?.title || game?.name || 'Unknown Title';
-            const playtimeHours = game?.playtimeHours || (typeof game?.playtimeMinutes === 'number' ? `${Math.round(game.playtimeMinutes / 60)}h` : '0h');
-
-            return {
-                title,
-                playtimeHours
-            };
-        })
-        : [];
 
     return (
         <div className="page-container flex-center">
-            <h2 className="section-title">gaming</h2>
-
-            <div className="glass-panel" style={{ padding: '3rem', maxWidth: '800px', marginBottom: '4rem', textAlign: 'center', boxShadow: 'none', background: 'white' }}>
-                <p style={{ fontSize: '1.1rem', color: '#718096', lineHeight: '1.8' }}>
-                    I've been playing games as long as I've been forming complete sentences. Some of my all-time favorites are Halo (3 & Reach), Zelda (Ocarina of Time & Majoras Mask), Fallout: New Vegas, and Clair Obscur: Expedition 33. See below for stats, platforms & more!
+            <PageIntro title="gaming" className="intro-panel--gaming">
+                <p>
+                    I&apos;ve been playing games as long as I&apos;ve been forming complete sentences. Some of my all-time favorites are Halo (3 &amp; Reach), Zelda (Ocarina of Time &amp; Majoras Mask), Fallout: New Vegas, and Clair Obscur: Expedition 33. See below for stats, platforms &amp; more!
                 </p>
-            </div>
+            </PageIntro>
 
             {stats ? (
-                <div style={{ width: '100%', marginBottom: '5rem', maxWidth: '1000px' }}>
-                    {/* Currently Playing */}
-                    <div style={{ textAlign: 'center', marginBottom: '4rem', background: 'rgba(255,255,255,0.6)', padding: '2rem', borderRadius: '16px' }}>
-                        <h3 style={{ fontSize: '1rem', color: '#a0aec0', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '1px' }}>currently playing</h3>
-                        <p style={{ fontSize: '2rem', color: '#4a5568', fontWeight: 'bold' }}>{stats.steam?.lastPlayed || "Unknown"}</p>
+                <div className="gaming-stats">
+                    <div className="now-playing">
+                        <h2>currently playing</h2>
+                        <p>{stats.steam?.lastPlayed || 'Unknown'}</p>
                     </div>
 
-                    <div className="stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
-                        {/* Steam */}
-                        <div className="stat-card glass-panel" style={{ textAlign: 'left', background: 'white', padding: '2rem', border: '1px solid #e2e8f0', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.05)' }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1.5rem', alignItems: 'center' }}>
-                                <h3 style={{ fontSize: '1.3rem', fontWeight: '700', color: '#2d3748' }}>steam</h3>
-                                <a
-                                    href={stats.steam?.profileUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', color: 'var(--pastel-seafoam)', fontWeight: 'bold', fontSize: '0.9rem' }}
-                                >
-                                    view profile <ExternalLink size={16} />
-                                </a>
-                            </div>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                                {stats.steam?.games?.slice(0, 3).map((game, i) => (
-                                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '1rem', paddingBottom: '1rem', borderBottom: i < 2 ? '1px solid #f1f5f9' : 'none' }}>
-                                        {game.icon && <img src={game.icon} alt={game.name} style={{ width: '48px', height: '48px', borderRadius: '8px', opacity: 0.9 }} />}
-                                        <div>
-                                            <p style={{ fontWeight: '600', fontSize: '1rem', color: '#4a5568' }}>{game.name}</p>
-                                            <p style={{ fontSize: '0.9rem', color: '#a0aec0', display: 'flex', alignItems: 'center', gap: '6px' }}><Clock size={14} /> {Math.round(game.playtime_forever / 60)}h</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Xbox */}
-                        <div className="stat-card glass-panel" style={{ textAlign: 'left', background: 'white', padding: '2rem', border: '1px solid #e2e8f0', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.05)' }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1.5rem', alignItems: 'center' }}>
-                                <h3 style={{ fontSize: '1.3rem', fontWeight: '700', color: '#2d3748' }}>xbox</h3>
-                                <span style={{ color: '#a0aec0', fontSize: '0.9rem', fontWeight: '500', background: '#f7fafc', padding: '4px 8px', borderRadius: '4px' }}>@{xboxData?.gamertag || 'unknown'}</span>
-                            </div>
-
-                            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
-                                {xboxData?.gamerPictureUrl ? (
-                                    <img
-                                        src={xboxData.gamerPictureUrl}
-                                        alt={`${xboxData?.gamertag || 'xbox'} gamer picture`}
-                                        style={{ width: '88px', height: '88px', borderRadius: '50%', objectFit: 'cover', border: '2px solid #edf2f7' }}
-                                        onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                                    />
-                                ) : (
-                                    <div style={{ width: '88px', height: '88px', borderRadius: '50%', border: '2px solid #edf2f7', background: '#f8fafc' }} />
-                                )}
-                            </div>
-
-                            <div style={{ marginBottom: '2rem' }}>
-                                <p style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#4a5568', lineHeight: '1' }}>{xboxGamerscore}</p>
-                                <span style={{ fontSize: '0.9rem', fontWeight: '500', color: '#a0aec0' }}>Gamerscore</span>
-                            </div>
-                            <div>
-                                <p style={{ fontSize: '0.8rem', color: '#a0aec0', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Recent</p>
-                                <ul style={{ paddingLeft: '0', fontSize: '1rem', color: '#718096' }}>
-                                    {xboxRecentGames.map((g, i) => (
-                                        <li key={i} style={{ marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                                            <span style={{ width: '6px', height: '6px', backgroundColor: 'var(--pastel-seafoam)', borderRadius: '50%', display: 'inline-block' }}></span>
-                                            <span style={{ flex: 1 }}>{g.title}</span>
-                                            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '0.8rem', color: '#a0aec0' }}><Clock size={12} /> {g.playtimeHours}</span>
-                                        </li>
-                                    ))}
-                                    {xboxRecentGames.length === 0 && (
-                                        <li style={{ listStyle: 'none', color: '#a0aec0', fontSize: '0.9rem' }}>no recent titles</li>
-                                    )}
-                                </ul>
-                            </div>
-                        </div>
-
-                        {/* Retro */}
-                        <div className="stat-card glass-panel" style={{ textAlign: 'left', background: 'white', padding: '2rem', border: '1px solid #e2e8f0', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.05)' }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1.5rem', alignItems: 'center' }}>
-                                <h3 style={{ fontSize: '1.3rem', fontWeight: '700', color: '#2d3748' }}>retro</h3>
-                                <a
-                                    href={`https://retroachievements.org/user/${stats.retro?.user}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', color: 'var(--pastel-seafoam)', fontWeight: 'bold', fontSize: '0.9rem' }}
-                                >
-                                    view profile <ExternalLink size={16} />
-                                </a>
-                            </div>
-
-                            <div style={{ display: 'flex', gap: '2rem', marginBottom: '1.5rem' }}>
-                                <div>
-                                    <p style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#4a5568', lineHeight: '1' }}>{stats.retro?.hardcorePoints ?? '---'}</p>
-                                    <span style={{ fontSize: '0.9rem', fontWeight: '500', color: '#a0aec0' }}>hardcore points</span>
-                                </div>
-                                <div>
-                                    <p style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#4a5568', lineHeight: '1' }}>{stats.retro?.softcorePoints ?? '---'}</p>
-                                    <span style={{ fontSize: '0.9rem', fontWeight: '500', color: '#a0aec0' }}>softcore points</span>
-                                </div>
-                            </div>
-
-                            {stats.retro?.lastGame && (
-                                <div style={{ marginBottom: '1.5rem', padding: '0.75rem', background: '#f8fafc', borderRadius: '8px', border: '1px solid #edf2f7' }}>
-                                    <p style={{ fontSize: '0.8rem', color: '#a0aec0', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '0.3rem' }}>last played</p>
-                                    <p style={{ fontWeight: '600', fontSize: '1rem', color: '#2d3748' }}>{stats.retro.lastGame.title}</p>
-                                    <p style={{ fontSize: '0.85rem', color: '#718096' }}>{stats.retro.lastGame.consoleName}</p>
-                                </div>
-                            )}
-
-                            <p style={{ fontSize: '0.8rem', color: '#a0aec0', marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>recent unlocks</p>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                                {stats.retro?.recentAchievements?.slice(0, 3).map((ach, i) => (
-                                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '1rem', paddingBottom: i < 2 ? '1rem' : '0', borderBottom: i < 2 ? '1px solid #f1f5f9' : 'none' }}>
-                                        <img
-                                            src={ach.badgeUrl}
-                                            alt={ach.title}
-                                            style={{ width: '48px', height: '48px', borderRadius: '8px', opacity: 0.9 }}
-                                            onError={(e) => { e.target.style.display = 'none'; }}
-                                        />
-                                        <div style={{ flex: 1 }}>
-                                            <p style={{ fontWeight: '600', fontSize: '1rem', color: '#4a5568', marginBottom: '0.1rem' }}>{ach.title}</p>
-                                            <p style={{ fontSize: '0.85rem', color: '#718096', marginBottom: '0.1rem' }}>{ach.game}</p>
-                                            <p style={{ fontSize: '0.8rem', color: '#a0aec0', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                                {ach.points} pts
-                                                {ach.hardcore && (
-                                                    <span style={{ fontSize: '0.7rem', color: 'var(--pastel-seafoam)', fontWeight: '700', border: '1px solid var(--pastel-seafoam)', borderRadius: '4px', padding: '0 4px' }}>HC</span>
-                                                )}
-                                                <span style={{ marginLeft: 'auto' }}>{new Date(ach.dateAwarded).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                ))}
-                                {(!stats.retro?.recentAchievements || stats.retro.recentAchievements.length === 0) && (
-                                    <p style={{ fontSize: '0.9rem', color: '#a0aec0' }}>no recent achievements</p>
-                                )}
-                            </div>
-                        </div>
+                    <div className="stats-grid">
+                        <SteamCard steam={stats.steam} />
+                        <XboxCard xbox={stats.xbox} />
+                        <RetroCard retro={stats.retro} />
                     </div>
                 </div>
             ) : (
-                <div style={{ padding: '5rem', color: '#a0aec0' }}>loading stats...</div>
+                <div className="gaming-status" role="status">
+                    {failed ? 'couldn\'t load stats right now' : 'loading stats...'}
+                </div>
             )}
 
-            {/* Clips Section */}
-            <h3 style={{ fontSize: '1.8rem', fontWeight: '600', marginBottom: '2rem', color: '#4a5568' }}>clips & screenshots</h3>
+            <h2 className="gaming-media-title">clips &amp; screenshots</h2>
 
-            {/* 3 Clips */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', width: '100%', maxWidth: '1000px', marginBottom: '4rem' }}>
-                {[1, 2, 3].map(n => (
-                    <div key={`clip-${n}`} style={{ height: '200px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', color: '#a0aec0', background: 'black', borderRadius: '12px', border: '1px solid #e2e8f0', overflow: 'hidden' }}>
-                        <video
-                            width="100%"
-                            height="100%"
-                            controls
-                            preload="metadata"
-                            style={{ objectFit: 'cover' }}
-                            onError={(e) => {
-                                e.target.style.display = 'none';
-                                e.target.parentElement.innerHTML = '<span style="color:white; opacity:0.5;">clip missing</span>';
-                            }}
-                        >
-                            <source src={`/assets/gaming/clips/clip-${n}.mp4`} type="video/mp4" />
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
+            <div className="media-grid media-grid--clips">
+                {MEDIA.map(n => (
+                    <MediaTile key={n} type="video" src={`/assets/gaming/clips/clip-${n}.mp4`} fallback="clip missing" className="media-tile--clip" />
                 ))}
             </div>
 
-            {/* 3 Screenshots */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', width: '100%', maxWidth: '1000px' }}>
-                {[1, 2, 3].map(n => (
-                    <div key={`shot-${n}`} style={{ height: '200px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', color: '#a0aec0', background: '#e2e8f0', borderRadius: '12px', overflow: 'hidden' }}>
-                        <img
-                            src={`/assets/gaming/screenshots/screenshot-${n}.jpg`}
-                            alt={`Screenshot ${n}`}
-                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                            onError={(e) => {
-                                e.target.style.display = 'none';
-                                e.target.parentElement.innerText = 'Coming Soon!';
-                            }}
-                        />
-                    </div>
+            <div className="media-grid">
+                {MEDIA.map(n => (
+                    <MediaTile key={n} src={`/assets/gaming/screenshots/screenshot-${n}.jpg`} alt={`Gaming screenshot ${n}`} fallback="Coming Soon!" className="media-tile--screenshot" />
                 ))}
             </div>
         </div>
