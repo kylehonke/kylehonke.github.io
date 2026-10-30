@@ -9,18 +9,18 @@ export const SITE_NAME = 'Kyle Honke';
 export const routes = [
     {
         path: '/',
-        title: 'Kyle Honke | ML Engineer & Software Developer',
-        description: 'Portfolio of Kyle Honke, a BAS Software Development candidate specializing in Machine Learning, Python, TensorFlow, C++, and Java.',
+        title: 'Kyle Honke',
+        description: 'Portfolio of Kyle Honke. Software Development BAS. Software Engineer at Clozure. DevOps at The University of Texas at Austin.',
     },
     {
         path: '/about',
         title: 'About',
-        description: 'About Kyle Honke: an Austin native Software Development BAS student at ACC and Software Engineer at Clozure, working across software engineering, machine learning, and data science.',
+        description: 'About Kyle Honke: an Austin native Software Engineer, working across software engineering, machine learning, and data science.',
     },
     {
         path: '/projects',
         title: 'Projects',
-        description: 'Featured projects by Kyle Honke, from LSTM time series models and predictive maintenance with deep representation learning to Navi AI and data structures in C++.',
+        description: 'Featured projects by Kyle Honke, from LSTM time series models and predictive maintenance with deep representation learning to AI and data structures in C++.',
     },
     {
         path: '/extras',
@@ -41,7 +41,7 @@ export const routes = [
     {
         path: '/extras/lego',
         title: 'Lego',
-        description: 'Lego builds and videos from groovybricks, Kyle Honke\'s Lego YouTube channel.',
+        description: 'Lego builds and videos from groovybricks on YouTube.',
     },
     {
         path: '/extras/music',
@@ -51,7 +51,7 @@ export const routes = [
     {
         path: '/extras/food',
         title: 'Food',
-        description: 'A few favorite Austin restaurants.',
+        description: '',
         hidden: true,
     },
 ];
