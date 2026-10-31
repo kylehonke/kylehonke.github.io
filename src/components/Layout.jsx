@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Outlet, Link, NavLink, useLocation } from 'react-router';
-import { findRoute, pageTitle } from '../routes';
+import { syncRouteMetadata } from '../metadata';
 
 const navLinks = [
     { name: 'About', path: '/about' },
@@ -14,7 +14,7 @@ const Layout = () => {
     const isHome = pathname === '/';
 
     useEffect(() => {
-        document.title = pageTitle(findRoute(pathname));
+        syncRouteMetadata(pathname);
     }, [pathname]);
 
     return (
@@ -53,3 +53,4 @@ const Layout = () => {
 };
 
 export default Layout;
+
