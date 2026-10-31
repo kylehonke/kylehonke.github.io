@@ -23,6 +23,11 @@ export default [
         languageOptions: { globals: globals.node },
     },
     {
+        files: ['tests/**/*.js'],
+        languageOptions: { globals: { ...globals.node, ...globals.browser } },
+    },
+    {
         linterOptions: { reportUnusedDisableDirectives: 'error' },
     },
 ];
+

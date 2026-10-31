@@ -2,22 +2,23 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { canonicalUrl, findRoute, isIndexable, notFoundRoute, pageTitle, routes } from './src/routes.js';
+import { canonicalUrl, findRoute, isIndexable, notFoundRoute, routeMetadata, routes } from './src/routes.js';
 
 const META_BLOCK = /<!-- route-meta -->[\s\S]*?<!-- \/route-meta -->|<!-- route-meta -->/;
 
 const escapeHtml = (value) => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;');
 
 const renderMeta = (route) => {
-    const title = escapeHtml(pageTitle(route));
-    const description = escapeHtml(route.description);
-    const url = canonicalUrl(route);
+    const metadata = routeMetadata(route);
+    const title = escapeHtml(metadata.title);
+    const description = escapeHtml(metadata.description);
+    const { robots, url } = metadata;
     return [
         '<!-- route-meta -->',
         `<title>${title}</title>`,
         `<meta name="description" content="${description}" />`,
-        ...(isIndexable(route) ? [] : ['<meta name="robots" content="noindex" />']),
-        ...(route === notFoundRoute ? [] : [`<link rel="canonical" href="${url}" />`, `<meta property="og:url" content="${url}" />`]),
+        ...(robots ? [`<meta name="robots" content="${robots}" />`] : []),
+        ...(url ? [`<link rel="canonical" href="${url}" />`, `<meta property="og:url" content="${url}" />`] : []),
         `<meta property="og:title" content="${title}" />`,
         `<meta property="og:description" content="${description}" />`,
         '<!-- /route-meta -->',
@@ -64,3 +65,4 @@ const staticRoutes = () => {
 export default defineConfig({
     plugins: [react(), staticRoutes()],
 });
+

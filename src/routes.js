@@ -76,3 +76,12 @@ export const isIndexable = (route) => !route.hidden && !route.noindex;
 
 // GitHub Pages serves each route from <path>/index.html, so canonical URLs end with a slash.
 export const canonicalUrl = (route) => `${SITE_URL}${route.path === '/' ? '/' : `${route.path}/`}`;
+
+// Used by both static HTML generation and client-side navigation.
+export const routeMetadata = (route) => ({
+    title: pageTitle(route),
+    description: route.description,
+    robots: isIndexable(route) ? null : 'noindex',
+    url: route === notFoundRoute ? null : canonicalUrl(route),
+});
+
