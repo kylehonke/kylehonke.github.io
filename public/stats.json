@@ -62,18 +62,42 @@
     "gamerPictureUrl": "https://images-eds-ssl.xboxlive.com/image?url=wHwbXKif8cus8csoZ03RW_ES.ojiJijNBGRVUbTnZKvlHqqbdJfZWiFtiClZ7rrQjjuuYohkY47xC6xY_khj_OihSKAG0gHTcu.NaVyAbapFdweePsDhfMkHEkOM0vOtNbnwnZjOPhgkiGQRIiBi5a06VZkFM5b3DkXT1PlIN6OCqbtLSjBB2mjsaD4RP3uF&format=png",
     "recentGames": [],
     "fromCache": true,
-    "lastFetchedAt": "2026-11-01T05:19:48.075Z"
+    "lastFetchedAt": "2026-11-02T05:19:02.566Z"
   },
   "retro": {
     "user": "stormkittyflvcko",
-    "hardcorePoints": 221,
-    "softcorePoints": 256,
+    "hardcorePoints": 235,
+    "softcorePoints": 242,
     "lastGame": {
       "title": "The Legend of Zelda: A Link to the Past",
       "consoleName": "SNES/Super Famicom",
       "icon": "https://media.retroachievements.org/Images/165392.png"
     },
     "recentAchievements": [
+      {
+        "title": "Bottle",
+        "game": "The Legend of Zelda: A Link to the Past",
+        "points": 5,
+        "dateAwarded": "2026-11-01 05:51:51",
+        "badgeUrl": "https://media.retroachievements.org/Badge/355813.png",
+        "hardcore": true
+      },
+      {
+        "title": "Bombs",
+        "game": "The Legend of Zelda: A Link to the Past",
+        "points": 4,
+        "dateAwarded": "2026-11-01 05:41:09",
+        "badgeUrl": "https://media.retroachievements.org/Badge/129305.png",
+        "hardcore": true
+      },
+      {
+        "title": "Sanctuary",
+        "game": "The Legend of Zelda: A Link to the Past",
+        "points": 5,
+        "dateAwarded": "2026-11-01 05:36:13",
+        "badgeUrl": "https://media.retroachievements.org/Badge/129270.png",
+        "hardcore": true
+      },
       {
         "title": "Fighter",
         "game": "The Legend of Zelda: A Link to the Past",
@@ -89,32 +113,8 @@
         "dateAwarded": "2026-10-31 17:10:39",
         "badgeUrl": "https://media.retroachievements.org/Badge/566161.png",
         "hardcore": false
-      },
-      {
-        "title": "Aww.. That's So Cute!",
-        "game": "Wario Land 4",
-        "points": 1,
-        "dateAwarded": "2026-10-31 17:07:41",
-        "badgeUrl": "https://media.retroachievements.org/Badge/566195.png",
-        "hardcore": false
-      },
-      {
-        "title": "Treasure Hunting 101",
-        "game": "Wario Land 4",
-        "points": 5,
-        "dateAwarded": "2026-10-31 17:03:15",
-        "badgeUrl": "https://media.retroachievements.org/Badge/566160.png",
-        "hardcore": false
-      },
-      {
-        "title": "Fungus Finder",
-        "game": "The Legend of Zelda: Majora's Mask",
-        "points": 2,
-        "dateAwarded": "2026-02-17 19:34:39",
-        "badgeUrl": "https://media.retroachievements.org/Badge/613086.png",
-        "hardcore": true
       }
     ]
   },
-  "lastUpdated": "2026-11-01T05:19:48.075Z"
+  "lastUpdated": "2026-11-02T05:19:02.566Z"
 }
