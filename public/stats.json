@@ -61,19 +61,43 @@
     "gamerscore": 33604,
     "gamerPictureUrl": "https://images-eds-ssl.xboxlive.com/image?url=wHwbXKif8cus8csoZ03RW_ES.ojiJijNBGRVUbTnZKvlHqqbdJfZWiFtiClZ7rrQjjuuYohkY47xC6xY_khj_OihSKAG0gHTcu.NaVyAbapFdweePsDhfMkHEkOM0vOtNbnwnZjOPhgkiGQRIiBi5a06VZkFM5b3DkXT1PlIN6OCqbtLSjBB2mjsaD4RP3uF&format=png",
     "recentGames": [],
-    "fromCache": true,
-    "lastFetchedAt": "2026-11-02T05:19:02.566Z"
+    "fromCache": false,
+    "lastFetchedAt": "2026-11-03T05:59:13.593Z"
   },
   "retro": {
     "user": "stormkittyflvcko",
-    "hardcorePoints": 235,
-    "softcorePoints": 242,
+    "hardcorePoints": 248,
+    "softcorePoints": 229,
     "lastGame": {
       "title": "The Legend of Zelda: A Link to the Past",
       "consoleName": "SNES/Super Famicom",
       "icon": "https://media.retroachievements.org/Images/165392.png"
     },
     "recentAchievements": [
+      {
+        "title": "Pendant of Courage",
+        "game": "The Legend of Zelda: A Link to the Past",
+        "points": 5,
+        "dateAwarded": "2026-11-02 10:10:34",
+        "badgeUrl": "https://media.retroachievements.org/Badge/129271.png",
+        "hardcore": true
+      },
+      {
+        "title": "All Quiet on the Eastern Front",
+        "game": "The Legend of Zelda: A Link to the Past",
+        "points": 3,
+        "dateAwarded": "2026-11-02 10:00:53",
+        "badgeUrl": "https://media.retroachievements.org/Badge/345915.png",
+        "hardcore": true
+      },
+      {
+        "title": "Bug Catcher",
+        "game": "The Legend of Zelda: A Link to the Past",
+        "points": 5,
+        "dateAwarded": "2026-11-02 09:21:21",
+        "badgeUrl": "https://media.retroachievements.org/Badge/129308.png",
+        "hardcore": true
+      },
       {
         "title": "Bottle",
         "game": "The Legend of Zelda: A Link to the Past",
@@ -89,32 +113,8 @@
         "dateAwarded": "2026-11-01 05:41:09",
         "badgeUrl": "https://media.retroachievements.org/Badge/129305.png",
         "hardcore": true
-      },
-      {
-        "title": "Sanctuary",
-        "game": "The Legend of Zelda: A Link to the Past",
-        "points": 5,
-        "dateAwarded": "2026-11-01 05:36:13",
-        "badgeUrl": "https://media.retroachievements.org/Badge/129270.png",
-        "hardcore": true
-      },
-      {
-        "title": "Fighter",
-        "game": "The Legend of Zelda: A Link to the Past",
-        "points": 2,
-        "dateAwarded": "2026-11-01 05:13:11",
-        "badgeUrl": "https://media.retroachievements.org/Badge/129299.png",
-        "hardcore": true
-      },
-      {
-        "title": "Ending the Entry Passage",
-        "game": "Wario Land 4",
-        "points": 5,
-        "dateAwarded": "2026-10-31 17:10:39",
-        "badgeUrl": "https://media.retroachievements.org/Badge/566161.png",
-        "hardcore": false
       }
     ]
   },
-  "lastUpdated": "2026-11-02T05:19:02.566Z"
+  "lastUpdated": "2026-11-03T05:59:13.594Z"
 }
