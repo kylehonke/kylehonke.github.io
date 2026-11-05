@@ -62,11 +62,11 @@
     "gamerPictureUrl": "https://images-eds-ssl.xboxlive.com/image?url=wHwbXKif8cus8csoZ03RW_ES.ojiJijNBGRVUbTnZKvlHqqbdJfZWiFtiClZ7rrQjjuuYohkY47xC6xY_khj_OihSKAG0gHTcu.NaVyAbapFdweePsDhfMkHEkOM0vOtNbnwnZjOPhgkiGQRIiBi5a06VZkFM5b3DkXT1PlIN6OCqbtLSjBB2mjsaD4RP3uF&format=png",
     "recentGames": [],
     "fromCache": false,
-    "lastFetchedAt": "2026-11-04T05:38:41.847Z"
+    "lastFetchedAt": "2026-11-05T05:56:38.593Z"
   },
   "retro": {
     "user": "stormkittyflvcko",
-    "hardcorePoints": 304,
+    "hardcorePoints": 347,
     "softcorePoints": 229,
     "lastGame": {
       "title": "The Legend of Zelda: A Link to the Past",
@@ -75,46 +75,46 @@
     },
     "recentAchievements": [
       {
-        "title": "Mirror World",
+        "title": "Crystal in the Dark",
         "game": "The Legend of Zelda: A Link to the Past",
-        "points": 5,
-        "dateAwarded": "2026-11-03 22:41:56",
-        "badgeUrl": "https://media.retroachievements.org/Badge/129314.png",
+        "points": 10,
+        "dateAwarded": "2026-11-04 18:34:05",
+        "badgeUrl": "https://media.retroachievements.org/Badge/129275.png",
         "hardcore": true
       },
       {
-        "title": "Icy",
+        "title": "Plundered the Palace",
         "game": "The Legend of Zelda: A Link to the Past",
         "points": 5,
-        "dateAwarded": "2026-11-03 22:35:49",
-        "badgeUrl": "https://media.retroachievements.org/Badge/129311.png",
+        "dateAwarded": "2026-11-04 18:19:11",
+        "badgeUrl": "https://media.retroachievements.org/Badge/345920.png",
         "hardcore": true
       },
       {
-        "title": "Magical Shield",
+        "title": "Fault Line",
         "game": "The Legend of Zelda: A Link to the Past",
         "points": 5,
-        "dateAwarded": "2026-11-03 22:15:51",
-        "badgeUrl": "https://media.retroachievements.org/Badge/129303.png",
+        "dateAwarded": "2026-11-04 16:25:27",
+        "badgeUrl": "https://media.retroachievements.org/Badge/129319.png",
         "hardcore": true
       },
       {
-        "title": "The Magic of the Boom",
+        "title": "Thunderstruck",
         "game": "The Legend of Zelda: A Link to the Past",
         "points": 5,
-        "dateAwarded": "2026-11-03 22:14:51",
-        "badgeUrl": "https://media.retroachievements.org/Badge/129313.png",
+        "dateAwarded": "2026-11-04 15:49:43",
+        "badgeUrl": "https://media.retroachievements.org/Badge/129318.png",
         "hardcore": true
       },
       {
-        "title": "Overpriced Merchandise",
+        "title": "Castle Caper",
         "game": "The Legend of Zelda: A Link to the Past",
         "points": 5,
-        "dateAwarded": "2026-11-03 21:56:43",
-        "badgeUrl": "https://media.retroachievements.org/Badge/129312.png",
+        "dateAwarded": "2026-11-04 14:18:47",
+        "badgeUrl": "https://media.retroachievements.org/Badge/345918.png",
         "hardcore": true
       }
     ]
   },
-  "lastUpdated": "2026-11-04T05:38:41.847Z"
+  "lastUpdated": "2026-11-05T05:56:38.594Z"
 }
