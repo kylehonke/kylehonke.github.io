@@ -61,13 +61,13 @@
     "gamerscore": 33604,
     "gamerPictureUrl": "https://images-eds-ssl.xboxlive.com/image?url=wHwbXKif8cus8csoZ03RW_ES.ojiJijNBGRVUbTnZKvlHqqbdJfZWiFtiClZ7rrQjjuuYohkY47xC6xY_khj_OihSKAG0gHTcu.NaVyAbapFdweePsDhfMkHEkOM0vOtNbnwnZjOPhgkiGQRIiBi5a06VZkFM5b3DkXT1PlIN6OCqbtLSjBB2mjsaD4RP3uF&format=png",
     "recentGames": [],
-    "fromCache": true,
-    "lastFetchedAt": "2026-11-02T05:19:02.566Z"
+    "fromCache": false,
+    "lastFetchedAt": "2026-11-05T05:56:38.593Z"
   },
   "retro": {
     "user": "stormkittyflvcko",
-    "hardcorePoints": 235,
-    "softcorePoints": 242,
+    "hardcorePoints": 347,
+    "softcorePoints": 229,
     "lastGame": {
       "title": "The Legend of Zelda: A Link to the Past",
       "consoleName": "SNES/Super Famicom",
@@ -75,46 +75,46 @@
     },
     "recentAchievements": [
       {
-        "title": "Bottle",
+        "title": "Crystal in the Dark",
+        "game": "The Legend of Zelda: A Link to the Past",
+        "points": 10,
+        "dateAwarded": "2026-11-04 18:34:05",
+        "badgeUrl": "https://media.retroachievements.org/Badge/129275.png",
+        "hardcore": true
+      },
+      {
+        "title": "Plundered the Palace",
         "game": "The Legend of Zelda: A Link to the Past",
         "points": 5,
-        "dateAwarded": "2026-11-01 05:51:51",
-        "badgeUrl": "https://media.retroachievements.org/Badge/355813.png",
+        "dateAwarded": "2026-11-04 18:19:11",
+        "badgeUrl": "https://media.retroachievements.org/Badge/345920.png",
         "hardcore": true
       },
       {
-        "title": "Bombs",
-        "game": "The Legend of Zelda: A Link to the Past",
-        "points": 4,
-        "dateAwarded": "2026-11-01 05:41:09",
-        "badgeUrl": "https://media.retroachievements.org/Badge/129305.png",
-        "hardcore": true
-      },
-      {
-        "title": "Sanctuary",
+        "title": "Fault Line",
         "game": "The Legend of Zelda: A Link to the Past",
         "points": 5,
-        "dateAwarded": "2026-11-01 05:36:13",
-        "badgeUrl": "https://media.retroachievements.org/Badge/129270.png",
+        "dateAwarded": "2026-11-04 16:25:27",
+        "badgeUrl": "https://media.retroachievements.org/Badge/129319.png",
         "hardcore": true
       },
       {
-        "title": "Fighter",
+        "title": "Thunderstruck",
         "game": "The Legend of Zelda: A Link to the Past",
-        "points": 2,
-        "dateAwarded": "2026-11-01 05:13:11",
-        "badgeUrl": "https://media.retroachievements.org/Badge/129299.png",
+        "points": 5,
+        "dateAwarded": "2026-11-04 15:49:43",
+        "badgeUrl": "https://media.retroachievements.org/Badge/129318.png",
         "hardcore": true
       },
       {
-        "title": "Ending the Entry Passage",
-        "game": "Wario Land 4",
+        "title": "Castle Caper",
+        "game": "The Legend of Zelda: A Link to the Past",
         "points": 5,
-        "dateAwarded": "2026-10-31 17:10:39",
-        "badgeUrl": "https://media.retroachievements.org/Badge/566161.png",
-        "hardcore": false
+        "dateAwarded": "2026-11-04 14:18:47",
+        "badgeUrl": "https://media.retroachievements.org/Badge/345918.png",
+        "hardcore": true
       }
     ]
   },
-  "lastUpdated": "2026-11-02T05:19:02.566Z"
+  "lastUpdated": "2026-11-05T05:56:38.594Z"
 }
