@@ -52,7 +52,7 @@
     {
         "id": 8,
         "title": "Day Night Commit",
-        "description": "A lightweight Git hook that automatically prefixes your commit messages with a sun (☀️) or moon (🌙) based on the time of day you are working. Compatible with both Unix and Windows operating systems.",
+        "description": "A lightweight Git hook that automatically prefixes your commit messages with a sun (☀️) or moon (🌙) based on the time of day you are working. Compatible with Linux and Windows operating systems.",
         "link": "https://github.com/kylehonke/day-night-commit",
         "type": "fun"
     }
