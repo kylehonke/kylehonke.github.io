@@ -62,59 +62,59 @@
     "gamerPictureUrl": "https://images-eds-ssl.xboxlive.com/image?url=wHwbXKif8cus8csoZ03RW_ES.ojiJijNBGRVUbTnZKvlHqqbdJfZWiFtiClZ7rrQjjuuYohkY47xC6xY_khj_OihSKAG0gHTcu.NaVyAbapFdweePsDhfMkHEkOM0vOtNbnwnZjOPhgkiGQRIiBi5a06VZkFM5b3DkXT1PlIN6OCqbtLSjBB2mjsaD4RP3uF&format=png",
     "recentGames": [],
     "fromCache": false,
-    "lastFetchedAt": "2026-11-08T05:24:22.921Z"
+    "lastFetchedAt": "2026-11-12T06:36:55.286Z"
   },
   "retro": {
     "user": "stormkittyflvcko",
-    "hardcorePoints": 347,
+    "hardcorePoints": 429,
     "softcorePoints": 229,
     "lastGame": {
-      "title": "Super Mario 64",
-      "consoleName": "Nintendo 64",
-      "icon": "https://media.retroachievements.org/Images/126542.png"
+      "title": "The Legend of Zelda: A Link to the Past",
+      "consoleName": "SNES/Super Famicom",
+      "icon": "https://media.retroachievements.org/Images/165392.png"
     },
     "recentAchievements": [
       {
-        "title": "A Woman's Best Friend",
-        "game": "The Legend of Zelda: Ocarina of Time",
-        "points": 5,
-        "dateAwarded": "2026-06-14 11:01:17",
-        "badgeUrl": "https://media.retroachievements.org/Badge/158196.png",
+        "title": "Crystal in the Woods",
+        "game": "The Legend of Zelda: A Link to the Past",
+        "points": 10,
+        "dateAwarded": "2026-11-12 04:38:48",
+        "badgeUrl": "https://media.retroachievements.org/Badge/129277.png",
         "hardcore": true
       },
       {
-        "title": "Hook Me Away",
-        "game": "The Legend of Zelda: Ocarina of Time",
+        "title": "Deforestation",
+        "game": "The Legend of Zelda: A Link to the Past",
         "points": 5,
-        "dateAwarded": "2026-06-08 04:33:55",
-        "badgeUrl": "https://media.retroachievements.org/Badge/158174.png",
+        "dateAwarded": "2026-11-12 04:19:35",
+        "badgeUrl": "https://media.retroachievements.org/Badge/345922.png",
         "hardcore": true
       },
       {
-        "title": "Hero of Time",
-        "game": "The Legend of Zelda: Ocarina of Time",
+        "title": "You Can't See Me",
+        "game": "The Legend of Zelda: A Link to the Past",
         "points": 5,
-        "dateAwarded": "2026-06-08 02:36:55",
-        "badgeUrl": "https://media.retroachievements.org/Badge/158127.png",
+        "dateAwarded": "2026-11-11 10:32:53",
+        "badgeUrl": "https://media.retroachievements.org/Badge/129315.png",
         "hardcore": true
       },
       {
-        "title": "Secrets Detector",
-        "game": "The Legend of Zelda: Ocarina of Time",
+        "title": "A Cape Not Just For Titans",
+        "game": "The Legend of Zelda: A Link to the Past",
         "points": 5,
-        "dateAwarded": "2026-06-08 02:15:19",
-        "badgeUrl": "https://media.retroachievements.org/Badge/158195.png",
+        "dateAwarded": "2026-11-11 10:32:51",
+        "badgeUrl": "https://media.retroachievements.org/Badge/356502.png",
         "hardcore": true
       },
       {
-        "title": "Last Breath",
-        "game": "The Legend of Zelda: Ocarina of Time",
+        "title": "Cursed Magic",
+        "game": "The Legend of Zelda: A Link to the Past",
         "points": 5,
-        "dateAwarded": "2026-06-08 01:45:09",
-        "badgeUrl": "https://media.retroachievements.org/Badge/158171.png",
+        "dateAwarded": "2026-11-11 10:09:36",
+        "badgeUrl": "https://media.retroachievements.org/Badge/129321.png",
         "hardcore": true
       }
     ]
   },
-  "lastUpdated": "2026-11-08T05:24:22.921Z"
+  "lastUpdated": "2026-11-12T06:36:55.286Z"
 }
