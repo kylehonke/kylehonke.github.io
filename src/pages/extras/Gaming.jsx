@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { Clock, ExternalLink } from 'lucide-react';
 import PageIntro from '../../components/PageIntro';
 import MediaTile from '../../components/MediaTile';
+import ProfilePicture from '../../components/ProfilePicture';
+import StatFigure from '../../components/StatFigure';
 
 const MEDIA = [1, 2, 3];
 
@@ -29,11 +31,13 @@ const hideOnError = (e) => {
 
 const SteamCard = ({ steam }) => (
     <StatCard title="steam" action={<ProfileLink href={steam?.profileUrl} />}>
+        <ProfilePicture src={steam?.avatar} animatedAvatar={steam?.animatedAvatar} frame={steam?.avatarFrame} alt="Steam profile picture" />
+        <p className="stat-label">Most Played</p>
         <ul className="stat-list steam-games">
             {steam?.games?.slice(0, 3).map(game => (
                 <li key={game.name}>
                     {game.icon && <img src={game.icon} alt={game.name} width="48" height="48" />}
-                    <div>
+                    <div className="stat-text-stack">
                         <p className="game-name">{game.name}</p>
                         <p className="stat-meta"><Clock size={14} aria-hidden="true" /> {Math.round(game.playtime_forever / 60)}h</p>
                     </div>
@@ -49,18 +53,8 @@ const XboxCard = ({ xbox }) => {
 
     return (
         <StatCard title="xbox" action={<span className="stat-tag">@{xbox?.gamertag || 'unknown'}</span>}>
-            <div className="xbox-picture">
-                {xbox?.gamerPictureUrl ? (
-                    <img src={xbox.gamerPictureUrl} alt={`${xbox.gamertag || 'xbox'} gamer picture`} width="88" height="88" onError={hideOnError} />
-                ) : (
-                    <div className="xbox-picture-placeholder" />
-                )}
-            </div>
-
-            <div className="stat-figure xbox-gamerscore">
-                <p>{gamerscore}</p>
-                <span>Gamerscore</span>
-            </div>
+            <ProfilePicture src={xbox?.gamerPictureUrl} alt={`${xbox?.gamertag || 'Xbox'} gamer picture`} round />
+            <StatFigure value={gamerscore} label="Gamerscore" className="xbox-gamerscore" />
 
             <p className="stat-label">Recent</p>
             <ul className="xbox-games">
@@ -82,15 +76,10 @@ const RetroCard = ({ retro }) => {
 
     return (
         <StatCard title="retro" action={<ProfileLink href={`https://retroachievements.org/user/${retro?.user}`} />}>
+            <ProfilePicture src={retro?.avatar} alt={`${retro?.user || 'Retro'} profile picture`} />
             <div className="stat-figures">
-                <div className="stat-figure">
-                    <p>{retro?.hardcorePoints ?? '---'}</p>
-                    <span>hardcore points</span>
-                </div>
-                <div className="stat-figure">
-                    <p>{retro?.softcorePoints ?? '---'}</p>
-                    <span>softcore points</span>
-                </div>
+                <StatFigure value={retro?.hardcorePoints ?? '---'} label="hardcore points" />
+                <StatFigure value={retro?.softcorePoints ?? '---'} label="softcore points" />
             </div>
 
             {retro?.lastGame && (
@@ -107,7 +96,7 @@ const RetroCard = ({ retro }) => {
                     {achievements.map(achievement => (
                         <li key={`${achievement.game}-${achievement.title}`}>
                             <img src={achievement.badgeUrl} alt={achievement.title} width="48" height="48" onError={hideOnError} />
-                            <div className="unlock-body">
+                            <div className="unlock-body stat-text-stack">
                                 <p className="unlock-title">{achievement.title}</p>
                                 <p className="unlock-game">{achievement.game}</p>
                                 <p className="stat-meta">
