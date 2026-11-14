@@ -201,11 +201,12 @@
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18.75rem), 1fr));
     gap: 3rem;
 }
 
 .stat-card {
+    min-width: 0;
     text-align: left;
     background: white;
     padding: 2rem;
@@ -215,6 +216,8 @@
 
 .stat-card-header {
     display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
     justify-content: space-between;
     margin-bottom: 1.5rem;
     align-items: center;
@@ -255,7 +258,17 @@
     letter-spacing: 0.5px;
 }
 
+.stat-figure {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+    max-width: 100%;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
 .stat-figure p {
+    margin: 0;
     font-size: 2.5rem;
     font-weight: bold;
     color: var(--gray-700);
@@ -270,16 +283,35 @@
 
 .stat-figures {
     display: flex;
-    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 2rem;
     margin-bottom: 1.5rem;
 }
 
 .stat-meta {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 6px;
+    gap: 0.375em;
     font-size: 0.8rem;
     color: var(--gray-500);
+}
+
+.stat-meta svg {
+    flex-shrink: 0;
+}
+
+.stat-text-stack {
+    display: grid;
+    gap: 0.2em;
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.stat-text-stack > p {
+    margin: 0;
 }
 
 .stat-list {
@@ -300,6 +332,7 @@
 }
 
 .stat-list img {
+    flex-shrink: 0;
     width: 48px;
     height: 48px;
     border-radius: 8px;
@@ -307,11 +340,11 @@
 }
 
 .steam-games {
-    gap: 1.5rem;
+    gap: 0.75rem;
 }
 
 .steam-games > li {
-    padding-bottom: 1rem;
+    padding-bottom: 0.75rem;
 }
 
 .steam-games .game-name {
@@ -324,25 +357,57 @@
     font-size: 0.9rem;
 }
 
-.xbox-picture {
+.profile-picture {
     display: flex;
     justify-content: center;
     margin-bottom: 1.5rem;
 }
 
-.xbox-picture > * {
-    width: 88px;
-    height: 88px;
-    border-radius: 50%;
-    border: 2px solid var(--gray-200);
+.profile-picture-stage {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 5.5rem;
+    max-width: 100%;
+    aspect-ratio: 1;
 }
 
-.xbox-picture img {
+/* Steam frames use a 224-square canvas around a 184-square avatar. */
+.profile-picture-stage--framed {
+    width: calc(5.5rem * 28 / 23);
+}
+
+.profile-picture-image {
+    display: block;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    border: 0.125rem solid var(--gray-200);
+    border-radius: 0;
 }
 
-.xbox-picture-placeholder {
+.profile-picture-stage--framed .profile-picture-image {
+    width: calc(100% * 23 / 28);
+    height: auto;
+    aspect-ratio: 1;
+    border: 0;
+}
+
+.profile-picture--round .profile-picture-image {
+    border-radius: 50%;
+}
+
+.profile-picture-placeholder {
     background: var(--slate-50);
+}
+
+.profile-picture-frame {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
 }
 
 .xbox-gamerscore {
@@ -363,6 +428,7 @@
 }
 
 .xbox-games .bullet {
+    flex-shrink: 0;
     width: 6px;
     height: 6px;
     background-color: var(--pastel-seafoam);
@@ -372,6 +438,8 @@
 
 .xbox-games .game-name {
     flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
 }
 
 .xbox-games .stat-meta {
@@ -408,28 +476,22 @@
 }
 
 .retro-unlocks {
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
 .retro-unlocks > li:not(:last-child) {
-    padding-bottom: 1rem;
-}
-
-.retro-unlocks .unlock-body {
-    flex: 1;
+    padding-bottom: 0.75rem;
 }
 
 .retro-unlocks .unlock-title {
     font-weight: 600;
     font-size: 1rem;
     color: var(--gray-700);
-    margin-bottom: 0.1rem;
 }
 
 .retro-unlocks .unlock-game {
     font-size: 0.85rem;
     color: var(--gray-600);
-    margin-bottom: 0.1rem;
 }
 
 .hardcore-badge {

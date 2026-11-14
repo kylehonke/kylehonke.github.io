@@ -2,6 +2,14 @@
   "steam": {
     "profileUrl": "https://steamcommunity.com/id/grewvy/",
     "avatar": "https://avatars.steamstatic.com/e5e6febd7da8e5b029b541a2aef7a7f711ecf7be_full.jpg",
+    "animatedAvatar": {
+      "animatedUrl": "https://shared.fastly.steamstatic.com/community_assets/images/items/2540780/c4a3baa1c19068f6097ceb7068b83b27a9b2e135.gif",
+      "staticUrl": "https://shared.fastly.steamstatic.com/community_assets/images/items/2540780/9fa7c63d029a52e2e4e8d1e6166cd7dd6969e627.jpg"
+    },
+    "avatarFrame": {
+      "animatedUrl": "https://shared.fastly.steamstatic.com/community_assets/images/items/253230/ff0e949ff66f2208a005ed51244ad145f0b68904.png",
+      "staticUrl": "https://shared.fastly.steamstatic.com/community_assets/images/items/253230/06a59fd94bb8f1fb2b1a0eac8885e5148c5b6442.png"
+    },
     "games": [
       {
         "name": "The Witcher 3: Wild Hunt — Remastered",
@@ -66,6 +74,7 @@
   },
   "retro": {
     "user": "stormkittyflvcko",
+    "avatar": "https://media.retroachievements.org/UserPic/stormkittyflvcko.png",
     "hardcorePoints": 439,
     "softcorePoints": 229,
     "lastGame": {

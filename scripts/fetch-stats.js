@@ -314,7 +314,38 @@ async function fetchXboxTitles(xuid) {
     return [];
 }
 
-async function fetchSteamStats() {
+const STEAM_PROFILE_IMAGE_BASE = 'https://shared.fastly.steamstatic.com/community_assets/images/';
+
+function normalizeSteamProfileItem(item) {
+    const imageUrl = value => typeof value === 'string' && value
+        ? new URL(value, STEAM_PROFILE_IMAGE_BASE).href
+        : null;
+    const animatedUrl = imageUrl(item?.image_small);
+    const staticUrl = imageUrl(item?.image_large);
+    return animatedUrl || staticUrl ? { animatedUrl, staticUrl } : null;
+}
+
+async function fetchSteamProfileItems(previousSteam) {
+    try {
+        const params = new URLSearchParams({ steamid: STEAM_ID });
+        const data = await getJson(`https://api.steampowered.com/IPlayerService/GetProfileItemsEquipped/v1/?${params}`);
+        if (!data?.response || typeof data.response !== 'object' || Array.isArray(data.response)) {
+            throw new Error('Invalid equipped-profile-items response.');
+        }
+        return {
+            animatedAvatar: normalizeSteamProfileItem(data.response.animated_avatar),
+            avatarFrame: normalizeSteamProfileItem(data.response.avatar_frame),
+        };
+    } catch {
+        console.warn('Steam profile items unavailable; retaining cached cosmetics.');
+        return {
+            animatedAvatar: previousSteam?.animatedAvatar ?? null,
+            avatarFrame: previousSteam?.avatarFrame ?? null,
+        };
+    }
+}
+
+async function fetchSteamStats(previousSteam = null) {
     if (!STEAM_KEY || !STEAM_ID) {
         console.warn('Steam env vars missing');
         return null;
@@ -324,10 +355,11 @@ async function fetchSteamStats() {
         `https://api.steampowered.com/${method}/?${new URLSearchParams({ key: STEAM_KEY, ...params })}`;
 
     try {
-        const [ownedData, profileData, recentData] = await Promise.all([
+        const [ownedData, profileData, recentData, profileItems] = await Promise.all([
             getJson(steamUrl('IPlayerService/GetOwnedGames/v0001', { steamid: STEAM_ID, format: 'json', include_appinfo: 1, include_played_free_games: 1 })),
             getJson(steamUrl('ISteamUser/GetPlayerSummaries/v0002', { steamids: STEAM_ID })),
             getJson(steamUrl('IPlayerService/GetRecentlyPlayedGames/v0001', { steamid: STEAM_ID, format: 'json' })),
+            fetchSteamProfileItems(previousSteam),
         ]);
 
         const games = (ownedData.response.games || []).toSorted((a, b) => b.playtime_forever - a.playtime_forever);
@@ -336,6 +368,7 @@ async function fetchSteamStats() {
         return {
             profileUrl: profile?.profileurl,
             avatar: profile?.avatarfull,
+            ...profileItems,
             games: games.slice(0, 10).map(game => ({
                 name: game.name,
                 playtime_forever: game.playtime_forever,
@@ -410,6 +443,7 @@ async function fetchRetroStats() {
 
         return {
             user: RETRO_USER,
+            avatar: data.UserPic ? new URL(data.UserPic, 'https://media.retroachievements.org').href : null,
             hardcorePoints: data.TotalPoints,
             softcorePoints: data.TotalSoftcorePoints,
             lastGame: data.LastGame ? {
@@ -454,7 +488,7 @@ async function main() {
     const previousXbox = sanitizeXboxForPublic(previousXboxRaw);
 
     const [steam, xbox, retro] = await Promise.all([
-        fetchSteamStats(),
+        fetchSteamStats(existingStats?.steam),
         fetchXboxStats(previousXbox, previousXboxRaw?.xuid || null),
         fetchRetroStats(),
     ]);
