@@ -104,3 +104,14 @@ test('invalid edits identify the offending record', () => {
     cycle.entries.find(entry => entry.id === 'clozure-intern').promotedFrom = 'clozure-engineer-1';
     expect(() => validateExperience(cycle)).toThrow('clozure-intern');
 });
+
+
+test('an explicit handoff can follow a month-only start in the same month', () => {
+    const edited = structuredClone(data);
+    edited.entries.find(entry => entry.id === 'ut-intern').start = '2026-10';
+    edited.entries.push({ ...utPromotion, start: '2026-10-27' });
+    validateExperience(edited);
+    const view = experienceAt(edited, '2026-10-27');
+    expect(role(view, 'ut-intern').displayEnd).toBe('2026-10-26');
+    expect(role(view, 'ut-next-role').employerSince).toBe('2026-10');
+});

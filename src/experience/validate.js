@@ -33,10 +33,13 @@ export function validateExperience({ organizations, entries }) {
     for (const entry of entries) {
         if (entry.promotedFrom === undefined) continue;
         const prior = byId.get(entry.promotedFrom);
-        // Strictly increasing starts also rule out every cycle.
+        // The link establishes the order if the predecessor started in the same
+        // month on an unknown day. A successor always has an exact start, so
+        // strictly increasing earliest possible starts also rule out cycles.
+        const earliestPriorStart = prior?.start.length === 7 ? prior.start + '-01' : prior?.start;
         if (!prior || entry.type !== 'work' || prior.type !== 'work' || !entry.organization ||
             entry.organization !== prior.organization || entry.start.length !== 10 ||
-            !earlier(prior.start, entry.start) || (prior.end && earlier(entry.start, prior.end)) ||
+            earliestPriorStart >= entry.start || (prior.end && earlier(entry.start, prior.end)) ||
             successors.has(prior.id)) {
             throw new Error('experience.json [' + entry.id + ']: invalid promotedFrom (' + entry.promotedFrom + ')');
         }
