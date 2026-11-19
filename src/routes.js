@@ -18,6 +18,11 @@ export const routes = [
         description: 'About Kyle Honke: an Austin native Software Engineer, working across software engineering, machine learning, and data science.',
     },
     {
+        path: '/experience',
+        title: 'Experience',
+        description: 'Kyle Honke’s work and education, with dates, role transitions, and the experiences that overlapped.',
+    },
+    {
         path: '/projects',
         title: 'Projects',
         description: 'Featured projects by Kyle Honke, from LSTM time series models and predictive maintenance with deep representation learning to AI and data structures in C++.',

@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
+import Experience from './pages/Experience';
 import Projects from './pages/Projects';
 import Extras from './pages/Extras';
 import NotFound from './pages/NotFound';
@@ -16,6 +17,7 @@ import { routes } from './routes';
 const pages = {
     '/': Home,
     '/about': About,
+    '/experience': Experience,
     '/projects': Projects,
     '/extras': Extras,
     '/extras/gaming': Gaming,
