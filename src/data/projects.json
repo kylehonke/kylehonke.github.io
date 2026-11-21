@@ -22,6 +22,13 @@
         "type": "professional"
     },
     {
+        "id": 9,
+        "title": "BERT NLP: SMS Spam Classification",
+        "description": "Fine-tuned BERT for SMS spam classification using PyTorch and Hugging Face Transformers. Uses a stratified training/validation split and evaluates spam-class precision, recall, and F1 alongside accuracy on the imbalanced UCI SMS Spam Collection dataset. Includes training and validation loss analysis and code for visualizing layer-8 attention heads.",
+        "link": "https://github.com/kylehonke/NLP-Spam-Classification",
+        "type": "professional"
+    },
+    {
         "id": 4,
         "title": "Graph Data Structure",
         "description": "Optimized, undirected graph engineered with an adjacency matrix to achieve O(1) time complexity. Demonstrates foundational computational theory through independent implementations of recursive Depth-First Search (DFS) and queue-based Breadth-First Search (BFS) algorithms. (C++)",
