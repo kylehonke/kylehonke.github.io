@@ -113,15 +113,7 @@
 }
 
 @media (max-width: 480px) {
-    .top-nav {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1.5rem;
-    }
-
-    .nav-links {
-        gap: 1.2rem;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+    .top-nav { flex-direction: column; padding: .65rem .5rem; gap: .3rem; background: var(--page-bg); }
+    .nav-links { gap: .15rem clamp(.4rem, 2.3vw, .8rem); align-items: center; flex-wrap: wrap; justify-content: center; }
+    .nav-links .nav-link { display: inline-flex; align-items: center; min-height: 44px; font-size: .94rem; }
 }
