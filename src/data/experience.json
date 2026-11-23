@@ -1,0 +1,58 @@
+{
+    "organizations": {
+        "ut-austin": "The University of Texas at Austin",
+        "clozure": "Clozure",
+        "acc": "Austin Community College",
+        "shore": "Shore Raw Bar & Grill"
+    },
+    "entries": [
+        {
+            "id": "ut-intern",
+            "type": "work",
+            "title": "DevOps Intern",
+            "organization": "ut-austin",
+            "start": "2026-10-27"
+        },
+        {
+            "id": "clozure-engineer-1",
+            "type": "work",
+            "title": "Software Engineer I",
+            "organization": "clozure",
+            "start": "2026-08-31",
+            "promotedFrom": "clozure-intern"
+        },
+        {
+            "id": "acc-bas",
+            "type": "education",
+            "title": "BAS in Software Development",
+            "organization": "acc",
+            "start": "2025-05",
+            "expectedEnd": "2026-12"
+        },
+        {
+            "id": "clozure-intern",
+            "type": "work",
+            "title": "Software Developer Intern",
+            "organization": "clozure",
+            "start": "2026-05-18",
+            "end": "2026-08-31"
+        },
+        {
+            "id": "aas-programming",
+            "type": "education",
+            "title": "AAS in Computer Programming",
+            "organization": "acc",
+            "start": "2023-01",
+            "end": "2025-05"
+        },
+        {
+            "id": "shore-server",
+            "type": "work",
+            "title": "Server",
+            "organization": "shore",
+            "start": "2021-06",
+            "end": "2023-10",
+            "emphasis": "subtle"
+        }
+    ]
+}
