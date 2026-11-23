@@ -57,7 +57,7 @@ test('mobile navigation, disclosures, direct load and history', async ({ page, r
     await page.setViewportSize({ width: 320, height: 750 });
     await page.goto('/about/');
     const nav = page.getByRole('navigation', { name: 'Main' });
-    await expect(nav.getByRole('link')).toHaveText(['Home', 'About', 'Experience', 'Projects', 'Resume', 'Extras']);
+    await expect(nav.getByRole('link')).toHaveText(['Home', 'About', 'Experience', 'Projects', 'Extras']);
     await nav.getByRole('link', { name: 'Experience' }).click();
     await expect(page).toHaveTitle('Experience | Kyle Honke');
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', /\/experience\/$/);
@@ -74,4 +74,12 @@ test('mobile navigation, disclosures, direct load and history', async ({ page, r
     await page.goForward();
     await expect(page).toHaveTitle('Experience | Kyle Honke');
     expect(await (await request.get('/sitemap.xml')).text()).toContain('<loc>https://kylehonke.github.io/experience/</loc>');
+});
+
+test('the resume PDF is available by direct URL', async ({ request }) => {
+    const response = await request.get('/resume.pdf');
+    expect(response.status()).toBe(200);
+    expect(response.headers()['content-type']).toMatch(/^application\/pdf\b/i);
+    const pdf = readFileSync(new URL('../public/resume.pdf', import.meta.url));
+    expect(await response.body()).toEqual(pdf);
 });
